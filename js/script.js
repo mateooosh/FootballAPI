@@ -119,7 +119,7 @@ fetch('http://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
 
 	$(`.top-scorers`).show(500);
 }); 
-
+ 
 
 let getMatchesByMatchday = (matchday) => {
 	fetch(`http://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`, {
