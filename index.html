@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pl">
+ 	<head>
+    	<meta charset="utf-8" />
+    	<title>FootScore</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<link rel="stylesheet" href="css/style.css" type="text/css"/>
+		<!-- FAVICON -->
+		<link
+			href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAArrCwAJ+hoQCQkpIA6OrqABocHADZ29sAcnR0AMrMzACsrq4AjpCQAMjKygC5u7sAqqysAJudnQDz9fUA1dfXABYYGABfYWEAioyMAOLk5AAjJSUA09XVABQWFgBsbm4AxMbGAF1fXwC1t7cATlBQAKaoqAA/QUEAiIqKAODi4gDR09MAs7W1AKSmpgD8/v4AhoiIAN7g4ACxs7MAoqSkAJOVlQCEhoYA3N7eAHV3dwDNz88AvsDAAFdZWQCvsbEASEpKAPj6+gDLzc0AZGZmALy+vgBVV1cAra+vAEZISAD2+PgAgIKCANja2gBxc3MAycvLAAoMDAC6vLwAU1VVAJyengA1NzcA5efnANbY2AAXGRkAb3FxAMfJyQAICgoAYGJiALi6ugCLjY0A4+XlANTW1gDFx8cABggIALa4uACnqakAQEJCAJiamgAxMzMAiYuLAOHj4wB6fHwA0tTUAGttbQClp6cA/f//AJaYmADu8PAAh4mJAHh6egDQ0tIAERMTAGlrawDBw8MAAgQEAFpcXACytLQAS01NAKOlpQDs7u4AhYeHAHZ4eAAAAgIAv8HBAKGjowCSlJQAKy0tAIOFhQDb3d0AdHZ2AA0PDwDMzs4AZWdnAL2/vwBWWFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACy5QdwAAAAAAAAAAAABzWSdKG20vHAAAAAAAAAB2BQdtMDAZNEhUAAAAAAAYQhoJGw0jJyJJZDEAAABjVSpKKApRQVwobnEsWgAAPz0bNwoDCl5VCilRWigAFkchAVMDYjg4QB8qPG8dDTsQNW01OgAAAAA2E2pqalxTZjMtbTRkFUU+Ul8lXnM0Z0BETU40bHRPAB5XRmp4ZQAAUXIGMBIAYThrSzo0EQAASCMPaSsIa0ZaNx0OHHAAAABYMlsEBlYgTgwwaGsAAAAAADkkWzkmFExgAU4AAAAAAAAATF1dAixHQ3UAAAAAAAAAAAAALEgXSQAAAAAAAPw/AADwDwAA4AcAAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA8A8AAPw/AAA="
+			rel="icon" type="image/x-icon" />
+ 	</head>
+
+	<body>
+		
+		<main>
+			<!-- STANDINGS -->
+			<section class="standings">
+				<h1>Standings</h1>
+				<div>
+					<button id="on-total" class="active">Total</button>
+					<button id="on-home">Home</button>
+					<button id="on-away">Away</button>
+				</div>
+
+				<div class="container-total">
+					<table class="total-standing">
+						<tr>
+							<th></th>
+							<th></th>
+							<th>Club</th>
+							<th>MP</th>
+							<th>W</th>
+							<th>D</th>
+							<th>L</th>
+							<th>G</th>
+							<th>Pts</th>
+						</tr>
+					</table>
+					<div class="promotions-describe">
+						<div>
+							<div class="champions-league"></div>
+							<div> Promotion - Champions League (Group Stage)</div>
+						</div>
+
+						<div>
+							<div class="europa-league"></div>
+							<div> Promotion - Europa League (Group Stage)</div>
+						</div>
+
+						<div>
+							<div class="europa-league-qual"></div>
+							<div> Promotion - Europa League (Qualification)</div>
+						</div>
+
+						<div>
+							<div class="relegation"></div>
+							<div> Relegation - Championship</div>
+						</div>
+
+						<div>If teams finish on equal points at the end of the season, score difference will be the tie-breaker.</div>
+					</div>
+				</div>
+
+				<div class="container-home">
+					<table class="home-standing">
+						<tr>
+							<th></th>
+							<th></th>
+							<th>Club</th>
+							<th>MP</th>
+							<th>W</th>
+							<th>D</th>
+							<th>L</th>
+							<th>G</th>
+							<th>Pts</th>
+						</tr>
+					</table>
+					<div class="promotions-describe">
+						<div>If teams finish on equal points at the end of the season, score difference will be the tie-breaker.</div>
+					</div>
+				</div>
+
+				<div class="container-away">
+					<table class="away-standing">
+						<tr>
+							<th></th>
+							<th></th>
+							<th>Club</th>
+							<th>MP</th>
+							<th>W</th>
+							<th>D</th>
+							<th>L</th>
+							<th>G</th>
+							<th>Pts</th>
+						</tr>
+					</table>
+					<div class="promotions-describe">
+						<div>If teams finish on equal points at the end of the season, score difference will be the tie-breaker.</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- TOP SCORERS -->
+			<div>
+				<section class="top-scorers">
+					<h1>Top Scorers</h1>
+					<table class="top-scorers-table">
+						<tr>
+							<th>#</th>
+							<th>Player</th>
+							<th>Team</th>
+							<th>G</th>
+						</tr>
+					</table>
+				</section>
+			</div>
+
+			<section class="matches">
+				<h1>Matches</h1>
+				<label for="matchday-select">Matchday</label>
+				<select name="matchday-select" id="matchday-select" >
+					<option id="id1"  value="1" >1</option>
+					<option id="id2"  value="2" >2</option>
+					<option id="id3"  value="3" >3</option>
+					<option id="id4"  value="4" >4</option>
+					<option id="id5"  value="5" >5</option>
+					<option id="id6"  value="6" >6</option>
+					<option id="id7"  value="7" >7</option>
+					<option id="id8"  value="8" >8</option>
+					<option id="id9"  value="9" >9</option>
+					<option id="id10" value="10">10</option>
+					<option id="id11" value="11">11</option>
+					<option id="id12" value="12">12</option>
+					<option id="id13" value="13">13</option>
+					<option id="id14" value="14">14</option>
+					<option id="id15" value="15">15</option>
+					<option id="id16" value="16">16</option>
+					<option id="id17" value="17">17</option>
+					<option id="id18" value="18">18</option>
+					<option id="id19" value="19">19</option>
+					<option id="id20" value="20">20</option>
+					<option id="id21" value="21">21</option>
+					<option id="id22" value="22">22</option>
+					<option id="id23" value="23">23</option>
+					<option id="id24" value="24">24</option>
+					<option id="id25" value="25">25</option>
+					<option id="id26" value="26">26</option>
+					<option id="id27" value="27">27</option>
+					<option id="id28" value="28">28</option>
+					<option id="id29" value="29">29</option>
+					<option id="id30" value="30">30</option>
+					<option id="id31" value="31">31</option>
+					<option id="id32" value="32">32</option>
+					<option id="id33" value="33">33</option>
+					<option id="id34" value="34">34</option>
+					<option id="id35" value="35">35</option>
+					<option id="id36" value="36">36</option>
+					<option id="id37" value="37">37</option>
+					<option id="id38" value="38">38</option>
+				</select>
+				
+				<table class="matches-table">
+					
+				</table>
+			</section>
+
+
+
+		</main>
+	
+
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	    <script src="js/script.js"></script>
+
+	</body>
+</html>
