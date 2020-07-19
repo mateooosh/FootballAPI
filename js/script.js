@@ -7,12 +7,11 @@
 
 let currentMatchday;
 
-$.ajax({
-	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' },
-	url: 'http://api.football-data.org/v2/competitions/2019/standings',
- 	dataType: 'json',
-	type: 'GET',
-}).done( response => {
+fetch('http://api.football-data.org/v2/competitions/2019/standings',{
+	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
+}).then(response => response.json())
+
+.then( response => {
 	let results = response;
 	let name, elimination = "";
 	currentMatchday = results.season.currentMatchday;
@@ -94,12 +93,11 @@ $.ajax({
 
 
 
-$.ajax({
-	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' },
-	url: 'http://api.football-data.org/v2/competitions/2019/scorers?limit=10',
-	dataType: 'json',
-	type: 'GET',
-}).done(response => {
+fetch('http://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
+	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
+}).then(response => response.json())
+
+.then(response => {
 	
 	let name;
 	// console.log(response);
@@ -124,12 +122,11 @@ $.ajax({
 
 
 let getMatchesByMatchday = (matchday) => {
-	$.ajax({
-		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' },
-		url: `http://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`,
-		dataType: 'json',
-		type: 'GET',
-	}).done(response => {
+	fetch(`http://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`, {
+		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
+	}).then(response => response.json())
+	
+	.then(response => {
 		console.log(response);
 
 		let score = '-';
