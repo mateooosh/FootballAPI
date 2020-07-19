@@ -7,7 +7,7 @@
 
 let currentMatchday;
 
-fetch('http://api.football-data.org/v2/competitions/2019/standings',{
+fetch('https://api.football-data.org/v2/competitions/2019/standings',{
 	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 }).then(response => response.json())
 
@@ -93,7 +93,7 @@ fetch('http://api.football-data.org/v2/competitions/2019/standings',{
 
 
 
-fetch('http://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
+fetch('https://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
 	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 }).then(response => response.json())
 
@@ -122,7 +122,7 @@ fetch('http://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
  
 
 let getMatchesByMatchday = (matchday) => {
-	fetch(`http://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`, {
+	fetch(`https://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`, {
 		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 	}).then(response => response.json())
 	
