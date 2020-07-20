@@ -6,13 +6,9 @@
 //ta
 
 
-<<<<<<< HEAD
 let clubLogo = [];
 
 fetch('https://api.football-data.org/v2/competitions/2021/standings',{
-=======
-fetch('https://api.football-data.org/v2/competitions/2019/standings',{
->>>>>>> 010537502d5842a48b39af557ddd85b6c9ea694c
 	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 }).then(response => response.json())
 
@@ -132,29 +128,14 @@ fetch('https://api.football-data.org/v2/competitions/2019/standings',{
 	}); 
 }); 
 
-<<<<<<< HEAD
-=======
-fetch('https://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
-	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
-}).then(response => response.json())
->>>>>>> 010537502d5842a48b39af557ddd85b6c9ea694c
 
 
 
 
-<<<<<<< HEAD
 
 
 let getMatchesByMatchday = (matchday) => {
 	fetch(`https://api.football-data.org//v2/competitions/2021/matches?matchday=${matchday}`, {
-=======
-	$(`.top-scorers`).show(500);
-}); 
- 
-
-let getMatchesByMatchday = (matchday) => {
-	fetch(`https://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`, {
->>>>>>> 010537502d5842a48b39af557ddd85b6c9ea694c
 		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 	}).then(response => response.json())
 	
@@ -280,9 +261,5 @@ $('#on-away').on('click', () => {
 
 $('#matchday-select').on('change', () =>{
 	getMatchesByMatchday($('#matchday-select').val());
-<<<<<<< HEAD
 });
 
-=======
-})
->>>>>>> 010537502d5842a48b39af557ddd85b6c9ea694c
