@@ -5,24 +5,25 @@
 //2017 - Portugal
 
 
-let currentMatchday;
 
-fetch('http://api.football-data.org/v2/competitions/2019/standings',{
+let clubLogo = [];
+
+fetch('https://api.football-data.org/v2/competitions/2021/standings',{
 	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 }).then(response => response.json())
 
 .then( response => {
-	let results = response;
 	let name, elimination = "";
-	currentMatchday = results.season.currentMatchday;
+	// clubLogo = [];
+	let currentMatchday = response.season.currentMatchday;
 	for(let i=1; i<=20; i++){
-		name = results.standings[0].table[i - 1].team.name;
+
+		name = response.standings[0].table[i - 1].team.name;
 		//delete tail " FC"
-		if(name.slice(name.length-3, name.length) === " FC")
-			name = name.slice(0, name.length - 3);
+		name = deleteFC(name);
 
 		elimination = "";
-		// PREMIER LEAGUE
+		// PREMIER LEAGUE, SERIE A
 		if(i<5)	
 			elimination = 'champions-league';
 		if(i === 5)
@@ -32,97 +33,109 @@ fetch('http://api.football-data.org/v2/competitions/2019/standings',{
 		if(i>17 && i<=20)
 			elimination = 'relegation';
 
+		
+
 		$(`.total-standing`).append(`
 			<tr>
-				<td class="${elimination}">${results.standings[0].table[i-1].position}</td>
-				<td><img height=56 src="${results.standings[0].table[i - 1].team.crestUrl}"></td>
+				<td class="${elimination} place">${response.standings[0].table[i-1].position}</td>
+				<td><img height=56 src="${response.standings[0].table[i - 1].team.crestUrl}"></td>
 				<td>${name}</td>
-				<td>${results.standings[0].table[i - 1].playedGames}</td>
-				<td>${results.standings[0].table[i - 1].won}</td>
-				<td>${results.standings[0].table[i - 1].draw}</td>
-				<td>${results.standings[0].table[i - 1].lost}</td>
-				<td>${results.standings[0].table[i - 1].goalsFor}:${results.standings[0].table[i - 1].goalsAgainst}</td>
-				<td>${results.standings[0].table[i - 1].points}</td>
+				<td>${response.standings[0].table[i - 1].playedGames}</td>
+				<td>${response.standings[0].table[i - 1].won}</td>
+				<td>${response.standings[0].table[i - 1].draw}</td>
+				<td>${response.standings[0].table[i - 1].lost}</td>
+				<td>${response.standings[0].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
+				<td>${response.standings[0].table[i - 1].points}</td>
 			</tr>
 		`);
 
-		name = results.standings[1].table[i - 1].team.name;
-		if (name.slice(name.length - 3, name.length) === " FC")
-			name = name.slice(0, name.length - 3);
+		name = response.standings[1].table[i - 1].team.name;
+		//delete tail " FC"
+		name = deleteFC(name);
 
 		$(`.home-standing`).append(`
 			<tr>
-				<td>${results.standings[1].table[i - 1].position}</td>
-				<td><img height=56 src="${results.standings[1].table[i - 1].team.crestUrl}"></td>
+				<td class="place">${response.standings[1].table[i - 1].position}</td>
+				<td><img height=56 src="${response.standings[1].table[i - 1].team.crestUrl}"></td>
 				<td>${name}</td>
-				<td>${results.standings[1].table[i - 1].playedGames}</td>
-				<td>${results.standings[1].table[i - 1].won}</td>
-				<td>${results.standings[1].table[i - 1].draw}</td>
-				<td>${results.standings[1].table[i - 1].lost}</td>
-				<td>${results.standings[1].table[i - 1].goalsFor}:${results.standings[0].table[i - 1].goalsAgainst}</td>
-				<td>${results.standings[1].table[i - 1].points}</td>
+				<td>${response.standings[1].table[i - 1].playedGames}</td>
+				<td>${response.standings[1].table[i - 1].won}</td>
+				<td>${response.standings[1].table[i - 1].draw}</td>
+				<td>${response.standings[1].table[i - 1].lost}</td>
+				<td>${response.standings[1].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
+				<td>${response.standings[1].table[i - 1].points}</td>
 			</tr>
 		`);
 
-		name = results.standings[2].table[i - 1].team.name;
-		if (name.slice(name.length - 3, name.length) === " FC")
-			name = name.slice(0, name.length - 3);
+		name = response.standings[2].table[i - 1].team.name;
+		//delete tail " FC"
+		name = deleteFC(name);
+		
 
 		$(`.away-standing`).append(`
 			<tr>
-				<td>${results.standings[2].table[i - 1].position}</td>
-				<td><img height=56 src="${results.standings[2].table[i - 1].team.crestUrl}"></td>
+				<td class="place">${response.standings[2].table[i - 1].position}</td>
+				<td><img height=56 src="${response.standings[2].table[i - 1].team.crestUrl}"></td>
 				<td>${name}</td>
-				<td>${results.standings[2].table[i - 1].playedGames}</td>
-				<td>${results.standings[2].table[i - 1].won}</td>
-				<td>${results.standings[2].table[i - 1].draw}</td>
-				<td>${results.standings[2].table[i - 1].lost}</td>
-				<td>${results.standings[2].table[i - 1].goalsFor}:${results.standings[0].table[i - 1].goalsAgainst}</td>
-				<td>${results.standings[2].table[i - 1].points}</td>
+				<td>${response.standings[2].table[i - 1].playedGames}</td>
+				<td>${response.standings[2].table[i - 1].won}</td>
+				<td>${response.standings[2].table[i - 1].draw}</td>
+				<td>${response.standings[2].table[i - 1].lost}</td>
+				<td>${response.standings[2].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
+				<td>${response.standings[2].table[i - 1].points}</td>
 			</tr>
 		`);
+
+
+		clubLogo.push([name, response.standings[2].table[i - 1].team.crestUrl]);
 	}
 
 	$(`.standings`).show(500);
 	getMatchesByMatchday(currentMatchday);
 
-	// console.log(response);
+
+}).then(() =>{
+	fetch('https://api.football-data.org/v2/competitions/2021/scorers?limit=10', {
+		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
+	}).then(response => response.json())
+
+	.then(response => {
+		let name, logoUrl;
+
+		for (let i = 0; i < response.scorers.length; i++) {
+
+			name = response.scorers[i].team.name;
+			name = deleteFC(name);
+
+			for(let j=0; j<clubLogo.length; j++){
+				if(name === clubLogo[j][0])
+					logoUrl = clubLogo[j][1];
+			}
+			
+
+			$(`.top-scorers-table`).append(`
+				<tr>
+					<td>${i + 1}</td>
+					<td>${response.scorers[i].player.name}</td>
+					<td><img height=56 src="${logoUrl}"></td>
+					<td class="ta-left">${name}</td>
+					<td>${response.scorers[i].numberOfGoals}</td>
+				</tr>
+			`);
+		}
+		// console.log(response);
+		$(`.top-scorers`).show(500);
+	}); 
 }); 
 
 
 
 
 
-fetch('http://api.football-data.org/v2/competitions/2019/scorers?limit=10',{
-	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
-}).then(response => response.json())
-
-.then(response => {
-	
-	let name;
-	// console.log(response);
-	for(let i = 0; i<response.scorers.length; i++){
-
-		name = response.scorers[i].team.name;
-		if (name.slice(name.length - 3, name.length) === " FC")
-			name = name.slice(0, name.length - 3);
-
-		$(`.top-scorers-table`).append(`
-			<tr>
-				<td>${i+1}</td>
-				<td>${response.scorers[i].player.name}</td>
-				<td>${name}</td>
-				<td>${response.scorers[i].numberOfGoals}</td>
-			</tr>
-		`);
-	}
-
-	$(`.top-scorers`).show(500);
-}); 
 
 
 let getMatchesByMatchday = (matchday) => {
-	fetch(`http://api.football-data.org//v2/competitions/2019/matches?matchday=${matchday}`, {
+	fetch(`https://api.football-data.org//v2/competitions/2021/matches?matchday=${matchday}`, {
 		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 	}).then(response => response.json())
 	
@@ -134,8 +147,16 @@ let getMatchesByMatchday = (matchday) => {
 
 		$(`.matches-table`).html(``);
 
-		//get date
-		let date = `${response.matches[0].utcDate.slice(8, 10)}.${response.matches[0].utcDate.slice(5, 7)}`;
+
+		let utcDate = new Date(response.matches[0].utcDate);
+
+		let day = utcDate.getDate(), month = utcDate.getMonth();
+		day = (day <10) ? `0${day}` : day;
+		month++;
+		month = (month <10) ? `0${month}` : month;
+		let date = `${day}.${month}`;
+
+
 		$(`.matches-table`).append(`
 			<tr class="match-date">
 				<td></td>
@@ -155,21 +176,23 @@ let getMatchesByMatchday = (matchday) => {
 			nameHome = response.matches[i].homeTeam.name;
 			nameAway = response.matches[i].awayTeam.name;
 
-			//delete tail " FC"
-			if (nameHome.slice(nameHome.length - 3, nameHome.length) === " FC")
-				nameHome = nameHome.slice(0, nameHome.length - 3);
-			//delete tail " FC"
-			if (nameAway.slice(nameAway.length - 3, nameAway.length) === " FC")
-				nameAway = nameAway.slice(0, nameAway.length - 3);
+			//delete tails " FC"
+			nameHome = deleteFC(nameHome);
+			nameAway = deleteFC(nameAway);
 
 			//if finished get score
 			if (response.matches[i].status === "FINISHED")
 				score = `${response.matches[i].score.fullTime.homeTeam} - ${response.matches[i].score.fullTime.awayTeam}`;
 
+			utcDate = new Date(response.matches[i].utcDate);
+			let day = utcDate.getDate(), month = utcDate.getMonth();
+			day = (day < 10) ? `0${day}` : day;
+			month++;
+			month = (month < 10) ? `0${month}` : month;
 
 			//append date
-			if (date !== `${response.matches[i].utcDate.slice(8, 10)}.${response.matches[i].utcDate.slice(5, 7)}`){
-				date = `${response.matches[i].utcDate.slice(8, 10)}.${response.matches[i].utcDate.slice(5, 7)}`;
+			if (date !== `${day}.${month}`){
+				date = `${day}.${month}`;
 				$(`.matches-table`).append(`
 					<tr class="match-date">
 						<td></td>
@@ -179,11 +202,16 @@ let getMatchesByMatchday = (matchday) => {
 					</tr>
 				`);
 			}
-				
+			
+			
+			let minutes = utcDate.getMinutes();
+			minutes = (minutes == 0)? '00' : minutes;
+			let start = `${utcDate.getHours()}:${minutes}`;
+			
 			//append match
 			$(`.matches-table`).append(`
 				<tr>
-					<td>${response.matches[i].utcDate.slice(11, 16)}</td>
+					<td>${start}</td>
 					<td class="ta-right">${nameHome}</td>
 					<td class="pr-10 pl-10">${score}</td>
 					<td class="ta-left">${nameAway}</td>
@@ -191,6 +219,12 @@ let getMatchesByMatchday = (matchday) => {
 			`);
 		}
 	});
+}
+
+let deleteFC = (value) => {
+	if (value.slice(value.length - 3, value.length) === " FC")
+		return value.slice(0, value.length - 3);
+	return value;
 }
 
 
@@ -227,4 +261,5 @@ $('#on-away').on('click', () => {
 
 $('#matchday-select').on('change', () =>{
 	getMatchesByMatchday($('#matchday-select').val());
-})
+});
+
