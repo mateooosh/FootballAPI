@@ -1,61 +1,77 @@
-*{
-    box-sizing: border-box;
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-body{
-    font-size: 15px;
-    font-family: arial, sans-serif;
-    background-color: rgb(233, 233, 233);
-    width:100%;
-    height: 100vh;
-    margin:0;
+body {
+  width: 100%;
+  height: 100vh;
+  font-size: 15px;
+  font-family: arial, sans-serif;
+  background-color: #e9e9e9;
+  margin: 0;
 }
 
-main{
-    margin: auto;
+main {
+  margin: auto;
 }
 
-.standings h1{
-    width: 600px;
+.standings h1 {
+  width: 600px;
 }
 
-button{
-    outline: none;
-    border: none;
-    padding: 5px 10px;
-    background-color: rgb(211, 211, 211);
-    margin-right: 2px;
+button {
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  background-color: lightgray;
+  margin-right: 2px;
 }
 
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 
-.active{
-    background-color: rgb(130, 177, 116);
+.active {
+  background-color: #82b174;
 }
 
-
-.container-home, .container-away{
-    display: none;
+.standings__home, .standings__away {
+  display: none;
 }
 
-.standings{
-    display: none;
-    margin-right:auto;
-    margin-left: auto;
-    width: 600px;
-    padding:10px 20px;
-    border-radius: 5px;
-    background-color: rgb(236, 236, 236);
-    -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
+.standings {
+  display: none;
+  margin-right: auto;
+  margin-left: auto;
+  width: 600px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #ececec;
+  box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
 }
 
-img{
-    text-align: center;
-    height:25px;
+.standings td:nth-child(2) {
+  padding: 0;
+  padding-top: 5px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.standings table td:nth-child(3) {
+  text-align: left;
+  padding-left: 3px;
+}
+
+.standings table td:nth-child(2) {
+  padding-left: 3px;
+}
+
+img {
+  text-align: center;
+  height: 25px;
 }
 
 table {
@@ -70,164 +86,155 @@ th, td {
   min-width: 26px;
 }
 
-tr:hover{
-    background-color:#e4e4e4;
+tr:hover {
+  background-color: #e4e4e4;
 }
 
-.standings td:nth-child(2){
-    padding:0;
-    padding-top: 5px;
-    display:table-cell;
-    vertical-align:middle;
+.place {
+  width: 36px;
 }
 
-.standings table td:nth-child(3){
-    text-align: left;
+.top-scorers {
+  width: 600px;
+  display: none;
+  margin: 10px auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #ececec;
+  box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
 }
 
-.total-standing-table{
-    display: table;
+.top-scorers__table td:nth-child(2) {
+  text-align: left;
 }
 
-.place{
-    width: 36px;
+th:nth-child(2) {
+  text-align: left;
 }
 
-.top-scorers{
+.matches {
+  width: 600px;
+  border-radius: 5px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background-color: #ececec;
+  box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px -4px rgba(0, 0, 0, 0.75);
+}
+
+.standings__total--champions-league {
+  background-color: #004682;
+  border-radius: 5px;
+  color: white;
+}
+
+.standings__total--europa-league {
+  background-color: #7f0029;
+  border-radius: 5px;
+  color: white;
+}
+
+.standings__total--europa-league-qual {
+  background-color: #c71585;
+  border-radius: 5px;
+  color: white;
+}
+
+.standings__total--relegation {
+  background-color: #bd0000;
+  border-radius: 5px;
+  color: white;
+}
+
+.standings__total--promotions {
+  margin-top: 20px;
+}
+
+.standings__total--promotions div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.standings__total--promotions .standings__total--champions-league, .standings__total--promotions .standings__total--europa-league, .standings__total--promotions .standings__total--europa-league-qual, .standings__total--promotions .standings__total--relegation {
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  border-radius: 0;
+}
+
+select {
+  width: 50px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.matches__table--date {
+  background-color: #4d4d4d;
+  color: white;
+}
+
+.matches__table--date td {
+  padding: 5px 10px;
+}
+
+.matches__table--date td:nth-child(4) {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.matches__table--date:hover {
+  cursor: default;
+  background-color: #4d4d4d;
+}
+
+@media (max-width: 620px) {
+  .matches {
+    width: 98%;
+    padding: 10px 10px;
+  }
+  .top-scorers {
+    width: 98%;
+    padding: 10px 10px;
+  }
+  .standings {
+    padding: 10px 10px;
+    width: 98%;
+    margin: auto;
+  }
+  .standings h1 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .standings__total--table th:nth-child(5), .standings__total--table th:nth-child(6), .standings__total--table th:nth-child(7), .standings__away--table th:nth-child(5), .standings__away--table th:nth-child(6), .standings__away--table th:nth-child(7), .standings__home--table th:nth-child(5), .standings__home--table th:nth-child(6), .standings__home--table th:nth-child(7) {
     display: none;
-    margin:10px auto;
-    width: 600px;   
-    padding:10px 20px;
-    border-radius: 5px;
-    background-color: rgb(236, 236, 236);
-    -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
+  }
+  .standings__total--table td:nth-child(5), .standings__total--table td:nth-child(6), .standings__total--table td:nth-child(7), .standings__away--table td:nth-child(5), .standings__away--table td:nth-child(6), .standings__away--table td:nth-child(7), .standings__home--table td:nth-child(5), .standings__home--table td:nth-child(6), .standings__home--table td:nth-child(7) {
+    display: none;
+  }
 }
-
-.top-scorers-table td:nth-child(2){
-    text-align: left;
-} 
-
-th:nth-child(2){
-    text-align: left;
-}
-
-.matches{
-    border-radius: 5px;
-    margin:10px auto;
-    width: 600px;
-    padding:10px 20px;
-    background-color: rgb(236, 236, 236);
-    -webkit-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 15px -4px rgba(0,0,0,0.75);
-}
-
-.champions-league{
-    background-color: #004682;
-    border-radius: 5px;
-    color:white;
-}
-
-.europa-league{
-    background-color: #7f0029;
-    border-radius: 5px;
-    color: white;
-}
-
-.europa-league-qual{
-    background-color: #c71585;
-    border-radius: 5px;
-    color: white;
-}
-
-.relegation{
-    background-color: #bd0000;
-    border-radius: 5px;
-    color: white;
-}
-
-.promotions-describe{
-    margin-top: 20px;
-}
-
-.promotions-describe div{
-    display: flex;
-    font-size: 12px;
-    margin-top: 1px;
-}
-
-.promotions-describe .champions-league, .promotions-describe .europa-league, .promotions-describe .europa-league-qual, .promotions-describe .relegation{
-    width:12px;
-    height: 12px;
-    margin-right: 10px;
-    border-radius: 0;
-}
-
-select{
-    width:50px;
-    font-size: 15px;
-    margin-bottom: 10px;
-}
-
-.match-date{
-    background-color: rgb(77, 77, 77);
-    color: white;
-}
-
-.match-date td{
-    padding: 5px 10px;
-}
-
-.match-date:hover{
-    cursor: default;
-    background-color: rgb(77, 77, 77);;
-}
-
-.match-date td:nth-child(4){
-    text-align: right;
-    padding-right: 20px;
-}
-
-
-@media (max-width:620px){
-    .standings h1{
-        width: 100%;
-    }
-
-    .matches{
-        width:98%;
-        padding:10px 10px;
-    }
-
-    .top-scorers{
-        width: 98%; 
-        padding:10px 10px;  
-    }
-
-    .standings{
-        padding:10px 10px;
-        width: 98%;
-        margin: auto;
-    }
-}
-
 
 /* ATOMIC CLASSES  */
-
-.ta-left{
-    text-align: left;
+.ta-left {
+  text-align: left;
 }
 
-.ta-right{
-    text-align: right;
+.ta-right {
+  text-align: right;
 }
 
-.pl-10{
-    padding-left: 10px;
+.pl-10 {
+  padding-left: 10px;
 }
 
-.pr-10{
-    padding-right: 10px;
+.pr-10 {
+  padding-right: 10px;
 }
+/*# sourceMappingURL=style.css.map */

@@ -18,13 +18,13 @@
 			<section class="standings">
 				<h1>Standings</h1>
 				<div>
-					<button id="on-total" class="active">Total</button>
-					<button id="on-home">Home</button>
-					<button id="on-away">Away</button>
+					<button class="standings__button--total active">Total</button>
+					<button class="standings__button--home">Home</button>
+					<button class="standings__button--away">Away</button>
 				</div>
 
-				<div class="container-total">
-					<table class="total-standing">
+				<div class="standings__total"> 
+					<table class="standings__total--table">
 						<tr>
 							<th></th>
 							<th></th>
@@ -37,24 +37,24 @@
 							<th>Pts</th>
 						</tr>
 					</table>
-					<div class="promotions-describe">
+					<div class="standings__total--promotions">
 						<div>
-							<div class="champions-league"></div>
+							<div class="standings__total--champions-league"></div>
 							<div> Promotion - Champions League (Group Stage)</div>
 						</div>
 
 						<div>
-							<div class="europa-league"></div>
+							<div class="standings__total--europa-league"></div>
 							<div> Promotion - Europa League (Group Stage)</div>
 						</div>
 
 						<div>
-							<div class="europa-league-qual"></div>
+							<div class="standings__total--europa-league-qual"></div>
 							<div> Promotion - Europa League (Qualification)</div>
 						</div>
 
 						<div>
-							<div class="relegation"></div>
+							<div class="standings__total--relegation"></div>
 							<div> Relegation - Championship</div>
 						</div>
 
@@ -62,8 +62,8 @@
 					</div>
 				</div>
 
-				<div class="container-home">
-					<table class="home-standing">
+				<div class="standings__home">
+					<table class="standings__home--table">
 						<tr>
 							<th></th>
 							<th></th>
@@ -76,13 +76,13 @@
 							<th>Pts</th>
 						</tr>
 					</table>
-					<div class="promotions-describe">
+					<div class="standings__total--promotions">
 						<div>If teams finish on equal points at the end of the season, score difference will be the tie-breaker.</div>
 					</div>
 				</div>
 
-				<div class="container-away">
-					<table class="away-standing">
+				<div class="standings__away">
+					<table class="standings__away--table">
 						<tr>
 							<th></th>
 							<th></th>
@@ -95,84 +95,78 @@
 							<th>Pts</th>
 						</tr>
 					</table>
-					<div class="promotions-describe">
+					<div class="standings__total--promotions">
 						<div>If teams finish on equal points at the end of the season, score difference will be the tie-breaker.</div>
 					</div>
 				</div>
 			</section>
 
 			<!-- TOP SCORERS -->
-			<section>
-				<div class="top-scorers">
-					<h1>Top Scorers</h1>
-					<table class="top-scorers-table">
-						<tr>
-							<th>#</th>
-							<th>Player</th>
-							<th></th>
-							<th class="ta-left">Team</th>
-							<th>G</th>
-						</tr>
-					</table>
-				</div>
+			<section class="top-scorers">
+				<h1>Top Scorers</h1>
+				<table class="top-scorers__table">
+					<tr>
+						<th>#</th>
+						<th>Player</th>
+						<th></th>
+						<th class="ta-left">Team</th>
+						<th>G</th>
+					</tr>
+				</table>
 			</section>
 
 			<!-- MATCHES -->
 			<section class="matches">
 				<h1>Matches</h1>
-				<label for="matchday-select">Matchday</label>
+				<label for="matches__label">Matchday</label>
 				<select name="matchday-select" id="matchday-select" >
-					<option id="id1"  value="1" >1</option>
-					<option id="id2"  value="2" >2</option>
-					<option id="id3"  value="3" >3</option>
-					<option id="id4"  value="4" >4</option>
-					<option id="id5"  value="5" >5</option>
-					<option id="id6"  value="6" >6</option>
-					<option id="id7"  value="7" >7</option>
-					<option id="id8"  value="8" >8</option>
-					<option id="id9"  value="9" >9</option>
-					<option id="id10" value="10">10</option>
-					<option id="id11" value="11">11</option>
-					<option id="id12" value="12">12</option>
-					<option id="id13" value="13">13</option>
-					<option id="id14" value="14">14</option>
-					<option id="id15" value="15">15</option>
-					<option id="id16" value="16">16</option>
-					<option id="id17" value="17">17</option>
-					<option id="id18" value="18">18</option>
-					<option id="id19" value="19">19</option>
-					<option id="id20" value="20">20</option>
-					<option id="id21" value="21">21</option>
-					<option id="id22" value="22">22</option>
-					<option id="id23" value="23">23</option>
-					<option id="id24" value="24">24</option>
-					<option id="id25" value="25">25</option>
-					<option id="id26" value="26">26</option>
-					<option id="id27" value="27">27</option>
-					<option id="id28" value="28">28</option>
-					<option id="id29" value="29">29</option>
-					<option id="id30" value="30">30</option>
-					<option id="id31" value="31">31</option>
-					<option id="id32" value="32">32</option>
-					<option id="id33" value="33">33</option>
-					<option id="id34" value="34">34</option>
-					<option id="id35" value="35">35</option>
-					<option id="id36" value="36">36</option>
-					<option id="id37" value="37">37</option>
-					<option id="id38" value="38">38</option>
+					<option class="matches__option--1 "  value="1" >1</option>
+					<option class="matches__option--2 "  value="2" >2</option>
+					<option class="matches__option--3 "  value="3" >3</option>
+					<option class="matches__option--4 "  value="4" >4</option>
+					<option class="matches__option--5 "  value="5" >5</option>
+					<option class="matches__option--6 "  value="6" >6</option>
+					<option class="matches__option--7 "  value="7" >7</option>
+					<option class="matches__option--8 "  value="8" >8</option>
+					<option class="matches__option--9 "  value="9" >9</option>
+					<option class="matches__option--10" value="10">10</option>
+					<option class="matches__option--11" value="11">11</option>
+					<option class="matches__option--12" value="12">12</option>
+					<option class="matches__option--13" value="13">13</option>
+					<option class="matches__option--14" value="14">14</option>
+					<option class="matches__option--15" value="15">15</option>
+					<option class="matches__option--16" value="16">16</option>
+					<option class="matches__option--17" value="17">17</option>
+					<option class="matches__option--18" value="18">18</option>
+					<option class="matches__option--19" value="19">19</option>
+					<option class="matches__option--20" value="20">20</option>
+					<option class="matches__option--21" value="21">21</option>
+					<option class="matches__option--22" value="22">22</option>
+					<option class="matches__option--23" value="23">23</option>
+					<option class="matches__option--24" value="24">24</option>
+					<option class="matches__option--25" value="25">25</option>
+					<option class="matches__option--26" value="26">26</option>
+					<option class="matches__option--27" value="27">27</option>
+					<option class="matches__option--28" value="28">28</option>
+					<option class="matches__option--29" value="29">29</option>
+					<option class="matches__option--30" value="30">30</option>
+					<option class="matches__option--31" value="31">31</option>
+					<option class="matches__option--32" value="32">32</option>
+					<option class="matches__option--33" value="33">33</option>
+					<option class="matches__option--34" value="34">34</option>
+					<option class="matches__option--35" value="35">35</option>
+					<option class="matches__option--36" value="36">36</option>
+					<option class="matches__option--37" value="37">37</option>
+					<option class="matches__option--38" value="38">38</option>
 				</select>
 				
-				<table class="matches-table">
+				<table class="matches__table">
 					
 				</table>
 			</section>
-
-
-
+			
 		</main>
 	
-
-		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	    <script src="js/script.js"></script>
 

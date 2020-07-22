@@ -25,17 +25,17 @@ fetch('https://api.football-data.org/v2/competitions/2021/standings',{
 		elimination = "";
 		// PREMIER LEAGUE, SERIE A
 		if(i<5)	
-			elimination = 'champions-league';
+			elimination = 'standings__total--champions-league';
 		if(i === 5)
-			elimination = 'europa-league';
+			elimination = 'standings__total--europa-league';
 		if(i === 6)
-			elimination = 'europa-league-qual';
+			elimination = 'standings__total--europa-league-qual';
 		if(i>17 && i<=20)
-			elimination = 'relegation';
+			elimination = 'standings__total--relegation';
 
 		
 
-		$(`.total-standing`).append(`
+		$(`.standings__total--table`).append(`
 			<tr>
 				<td class="${elimination} place">${response.standings[0].table[i-1].position}</td>
 				<td><img height=56 src="${response.standings[0].table[i - 1].team.crestUrl}"></td>
@@ -53,7 +53,7 @@ fetch('https://api.football-data.org/v2/competitions/2021/standings',{
 		//delete tail " FC"
 		name = deleteFC(name);
 
-		$(`.home-standing`).append(`
+		$(`.standings__home--table`).append(`
 			<tr>
 				<td class="place">${response.standings[1].table[i - 1].position}</td>
 				<td><img height=56 src="${response.standings[1].table[i - 1].team.crestUrl}"></td>
@@ -72,7 +72,7 @@ fetch('https://api.football-data.org/v2/competitions/2021/standings',{
 		name = deleteFC(name);
 		
 
-		$(`.away-standing`).append(`
+		$(`.standings__away--table`).append(`
 			<tr>
 				<td class="place">${response.standings[2].table[i - 1].position}</td>
 				<td><img height=56 src="${response.standings[2].table[i - 1].team.crestUrl}"></td>
@@ -113,7 +113,7 @@ fetch('https://api.football-data.org/v2/competitions/2021/standings',{
 			}
 			
 
-			$(`.top-scorers-table`).append(`
+			$(`.top-scorers__table`).append(`
 				<tr>
 					<td>${i + 1}</td>
 					<td>${response.scorers[i].player.name}</td>
@@ -145,7 +145,7 @@ let getMatchesByMatchday = (matchday) => {
 		let score = '-';
 		let nameHome, nameAway;
 
-		$(`.matches-table`).html(``);
+		$(`.matches__table`).html(``);
 
 
 		let utcDate = new Date(response.matches[0].utcDate);
@@ -155,10 +155,10 @@ let getMatchesByMatchday = (matchday) => {
 		month++;
 		month = (month <10) ? `0${month}` : month;
 		let date = `${day}.${month}`;
+		
 
-
-		$(`.matches-table`).append(`
-			<tr class="match-date">
+		$(`.matches__table`).append(`
+			<tr class="matches__table--date">
 				<td></td>
 				<td></td>
 				<td></td>
@@ -167,7 +167,7 @@ let getMatchesByMatchday = (matchday) => {
 		`);
 		
 		// set selected option
-		$(`#id${matchday}`).attr('selected', 'selected');
+		$(`.matches__option--${matchday}`).attr('selected', 'selected');
 
 		for (let i = 0; i < response.count; i++) {
 			
@@ -193,8 +193,8 @@ let getMatchesByMatchday = (matchday) => {
 			//append date
 			if (date !== `${day}.${month}`){
 				date = `${day}.${month}`;
-				$(`.matches-table`).append(`
-					<tr class="match-date">
+				$(`.matches__table`).append(`
+					<tr class="matches__table--date">
 						<td></td>
 						<td></td>
 						<td></td>
@@ -209,7 +209,7 @@ let getMatchesByMatchday = (matchday) => {
 			let start = `${utcDate.getHours()}:${minutes}`;
 			
 			//append match
-			$(`.matches-table`).append(`
+			$(`.matches__table`).append(`
 				<tr>
 					<td>${start}</td>
 					<td class="ta-right">${nameHome}</td>
@@ -229,34 +229,35 @@ let deleteFC = (value) => {
 
 
 //Listeners
-$('#on-total').on('click', () => {
-	$("#on-total").attr("class", "active");
-	$("#on-home").attr("class", "");
-	$("#on-away").attr("class", "");
+$('.standings__button--total').on('click', () => {
+	$(".standings__button--total").attr("class", "standings__button--total active");
+	$(".standings__button--home").attr("class", "standings__button--home");
+	$(".standings__button--away").attr("class", "standings__button--away");
 
-	$('.container-total').delay(200).fadeIn(500);
-	$('.container-home').fadeOut(200);
-	$('.container-away').fadeOut(200);
+
+	$('.standings__total').delay(200).fadeIn(500);
+	$('.standings__home').fadeOut(200);
+	$('.standings__away').fadeOut(200);
 });
 
-$('#on-home').on('click', () => {
-	$("#on-total").attr("class", "");
-	$("#on-home").attr("class", "active");
-	$("#on-away").attr("class", "");
+$('.standings__button--home').on('click', () => {
+	$(".standings__button--total").attr("class", "standings__button--total");
+	$(".standings__button--home").attr("class", "standings__button--home active");
+	$(".standings__button--away").attr("class", "standings__button--away");
 
-	$('.container-total').fadeOut(200);
-	$('.container-home').delay(200).fadeIn(500);
-	$('.container-away').fadeOut(200);
+	$('.standings__total').fadeOut(200);
+	$('.standings__home').delay(200).fadeIn(500);
+	$('.standings__away').fadeOut(200);
 });
 
-$('#on-away').on('click', () => {
-	$("#on-total").attr("class", "");
-	$("#on-home").attr("class", "");
-	$("#on-away").attr("class", "active");
+$('.standings__button--away').on('click', () => {
+	$(".standings__button--total").attr("class", "standings__button--total");
+	$(".standings__button--home").attr("class", "standings__button--home");
+	$(".standings__button--away").attr("class", "standings__button--away active");
 
-	$('.container-total').fadeOut(200);
-	$('.container-home').fadeOut(200);
-	$('.container-away').delay(200).fadeIn(500);
+	$('.standings__total').fadeOut(200);
+	$('.standings__home').fadeOut(200);
+	$('.standings__away').delay(200).fadeIn(500);
 });
 
 $('#matchday-select').on('change', () =>{

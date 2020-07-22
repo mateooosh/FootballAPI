@@ -1,0 +1,261 @@
+//VARIABLES
+$background-color: rgb(233, 233, 233);
+$width: 600px;
+
+
+// MIXINS
+@mixin size($w, $h){
+	width:$w;
+	height:$h; 
+}
+
+@mixin box-shadow($x, $y, $blur, $spread, $opacity){
+	box-shadow: $x $y $blur $spread rgba(0,0,0,$opacity);
+	-webkit-box-shadow: $x $y $blur $spread rgba(0,0,0,$opacity);
+	-moz-box-shadow: $x $y $blur $spread rgba(0,0,0,$opacity);
+}
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    @include size(100%, 100vh);
+    font-size: 15px;
+    font-family: arial, sans-serif;
+    background-color: $background-color;
+    margin:0;
+} 
+
+main{
+    margin: auto;
+}
+
+.standings {
+    h1{
+        width: $width;
+    }
+}
+
+button{
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+    background-color: rgb(211, 211, 211);
+    margin-right: 2px;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+
+.active{
+    background-color: rgb(130, 177, 116);
+}
+
+
+.standings__home, .standings__away{
+    display: none;
+}
+
+.standings{
+    display: none;
+    margin-right:auto;
+    margin-left: auto;
+    width: $width;
+    padding:10px 20px;
+    border-radius: 5px;
+    background-color: rgb(236, 236, 236);
+    @include box-shadow(0px, 0px, 15px, -4px, 0.75);
+
+    td:nth-child(2){
+        padding:0;
+        padding-top: 5px;
+        display:table-cell;
+        vertical-align:middle;
+    }
+}
+
+.standings table td:nth-child(3){
+    text-align: left;
+    padding-left:3px;
+}
+
+.standings table td:nth-child(2){
+    padding-left:3px;
+}
+
+img{
+    text-align: center;
+    height:25px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 10px 0px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    min-width: 26px;
+}
+
+tr:hover{
+    background-color:#e4e4e4;
+}
+
+.place{
+    width: 36px;
+}
+
+.top-scorers{
+    width: $width;   
+    display: none;
+    margin:10px auto;
+    padding:10px 20px;
+    border-radius: 5px;
+    background-color: rgb(236, 236, 236);
+    @include box-shadow(0px, 0px, 15px, -4px, 0.75);
+}
+
+.top-scorers__table td:nth-child(2){
+    text-align: left;
+} 
+
+th:nth-child(2){
+    text-align: left;
+}
+
+.matches{
+    width: $width;
+    border-radius: 5px;
+    margin:10px auto;
+    padding:10px 20px;
+    background-color: rgb(236, 236, 236);
+    @include box-shadow(0px, 0px, 15px, -4px, 0.75);
+}
+
+.standings__total--{
+    &champions-league{
+        background-color: #004682;
+        border-radius: 5px;
+        color:white;
+    }
+
+    &europa-league{
+        background-color: #7f0029;
+        border-radius: 5px;
+        color: white;
+    }
+
+    &europa-league-qual{
+        background-color: #c71585;
+        border-radius: 5px;
+        color: white;
+    }
+
+    &relegation{
+        background-color: #bd0000;
+        border-radius: 5px;
+        color: white;
+    }
+
+    &promotions{
+        margin-top: 20px;
+
+        div{
+            display: flex;
+            font-size: 12px;
+            margin-top: 1px;
+        }
+
+        .standings__total--champions-league, .standings__total--europa-league, .standings__total--europa-league-qual, .standings__total--relegation{
+            @include size(12px, 12px);
+            margin-right: 10px;
+            border-radius: 0;
+        }
+    }
+}
+
+
+select{
+    width:50px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.matches__table--date{
+    background-color: rgb(77, 77, 77);
+    color: white;
+
+    td{
+        padding: 5px 10px;
+    }
+
+    td:nth-child(4){
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    &:hover{
+        cursor: default;
+        background-color: rgb(77, 77, 77);
+    }
+}
+
+@media (max-width:620px){
+    .matches{
+        width:98%;
+        padding:10px 10px;
+    }
+
+    .top-scorers{
+        width: 98%; 
+        padding:10px 10px;  
+    }
+
+    .standings{
+        padding:10px 10px;
+        width: 98%;
+        margin: auto;
+
+        h1{
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width:480px){
+    .standings__total--table, .standings__away--table, .standings__home--table {
+        th:nth-child(5), th:nth-child(6), th:nth-child(7){
+            display: none;
+        }
+
+        td:nth-child(5), td:nth-child(6), td:nth-child(7){
+            display: none;
+        }
+    }
+}
+
+
+/* ATOMIC CLASSES  */
+
+.ta-left{
+    text-align: left;
+}
+
+.ta-right{
+    text-align: right;
+}
+
+.pl-10{
+    padding-left: 10px;
+}
+
+.pr-10{
+    padding-right: 10px;
+}
