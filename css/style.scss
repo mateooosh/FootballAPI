@@ -15,7 +15,6 @@ $width: 600px;
 	-moz-box-shadow: $x $y $blur $spread rgba(0,0,0,$opacity);
 }
 
-
 *{
     box-sizing: border-box;
 }
@@ -42,8 +41,10 @@ button{
     outline: none;
     border: none;
     padding: 5px 10px;
+    border-radius: 4px;
     background-color: rgb(211, 211, 211);
     margin-right: 2px;
+    transition: all .4s;
 
     &:hover{
         cursor: pointer;
@@ -52,7 +53,8 @@ button{
 
 
 .active{
-    background-color: rgb(130, 177, 116);
+    background-color: rgb(105, 180, 82);
+    color: white;
 }
 
 
@@ -125,10 +127,6 @@ tr:hover{
 .top-scorers__table td:nth-child(2){
     text-align: left;
 } 
-
-th:nth-child(2){
-    text-align: left;
-}
 
 .matches{
     width: $width;

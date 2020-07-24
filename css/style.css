@@ -24,8 +24,11 @@ button {
   outline: none;
   border: none;
   padding: 5px 10px;
+  border-radius: 4px;
   background-color: lightgray;
   margin-right: 2px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
 button:hover {
@@ -33,7 +36,8 @@ button:hover {
 }
 
 .active {
-  background-color: #82b174;
+  background-color: #69b452;
+  color: white;
 }
 
 .standings__home, .standings__away {
@@ -107,10 +111,6 @@ tr:hover {
 }
 
 .top-scorers__table td:nth-child(2) {
-  text-align: left;
-}
-
-th:nth-child(2) {
   text-align: left;
 }
 

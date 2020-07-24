@@ -6,141 +6,246 @@
 //ta
 
 
+
 let clubLogo = [];
+let competitionId = 0;
 
-fetch('https://api.football-data.org/v2/competitions/2021/standings',{
-	headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
-}).then(response => response.json())
+let promotionBPL = (value) => {
+	switch (value) {
+		case 1: case 2: case 3:	case 4:
+			return 'standings__total--champions-league';
+			break;
 
-.then( response => {
-	let name, elimination = "";
-	// clubLogo = [];
-	let currentMatchday = response.season.currentMatchday;
-	for(let i=1; i<=20; i++){
+		case 5:
+			return 'standings__total--europa-league';
+			break;
 
-		name = response.standings[0].table[i - 1].team.name;
-		//delete tail " FC"
-		name = deleteFC(name);
-
-		elimination = "";
-		// PREMIER LEAGUE, SERIE A
-		if(i<5)	
-			elimination = 'standings__total--champions-league';
-		if(i === 5)
-			elimination = 'standings__total--europa-league';
-		if(i === 6)
-			elimination = 'standings__total--europa-league-qual';
-		if(i>17 && i<=20)
-			elimination = 'standings__total--relegation';
-
+		case 6:
+			return 'standings__total--europa-league-qual';
+			break;
 		
+		case 18: case 19: case 20:
+			return 'standings__total--relegation';
+			break;
 
-		$(`.standings__total--table`).append(`
-			<tr>
-				<td class="${elimination} place">${response.standings[0].table[i-1].position}</td>
-				<td><img height=56 src="${response.standings[0].table[i - 1].team.crestUrl}"></td>
-				<td>${name}</td>
-				<td>${response.standings[0].table[i - 1].playedGames}</td>
-				<td>${response.standings[0].table[i - 1].won}</td>
-				<td>${response.standings[0].table[i - 1].draw}</td>
-				<td>${response.standings[0].table[i - 1].lost}</td>
-				<td>${response.standings[0].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
-				<td>${response.standings[0].table[i - 1].points}</td>
-			</tr>
-		`);
-
-		name = response.standings[1].table[i - 1].team.name;
-		//delete tail " FC"
-		name = deleteFC(name);
-
-		$(`.standings__home--table`).append(`
-			<tr>
-				<td class="place">${response.standings[1].table[i - 1].position}</td>
-				<td><img height=56 src="${response.standings[1].table[i - 1].team.crestUrl}"></td>
-				<td>${name}</td>
-				<td>${response.standings[1].table[i - 1].playedGames}</td>
-				<td>${response.standings[1].table[i - 1].won}</td>
-				<td>${response.standings[1].table[i - 1].draw}</td>
-				<td>${response.standings[1].table[i - 1].lost}</td>
-				<td>${response.standings[1].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
-				<td>${response.standings[1].table[i - 1].points}</td>
-			</tr>
-		`);
-
-		name = response.standings[2].table[i - 1].team.name;
-		//delete tail " FC"
-		name = deleteFC(name);
-		
-
-		$(`.standings__away--table`).append(`
-			<tr>
-				<td class="place">${response.standings[2].table[i - 1].position}</td>
-				<td><img height=56 src="${response.standings[2].table[i - 1].team.crestUrl}"></td>
-				<td>${name}</td>
-				<td>${response.standings[2].table[i - 1].playedGames}</td>
-				<td>${response.standings[2].table[i - 1].won}</td>
-				<td>${response.standings[2].table[i - 1].draw}</td>
-				<td>${response.standings[2].table[i - 1].lost}</td>
-				<td>${response.standings[2].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
-				<td>${response.standings[2].table[i - 1].points}</td>
-			</tr>
-		`);
-
-
-		clubLogo.push([name, response.standings[2].table[i - 1].team.crestUrl]);
+		default:
+			return '';
 	}
+}
 
-	$(`.standings`).show(500);
-	getMatchesByMatchday(currentMatchday);
+let promotionLaLiga = (value) => {
+	switch (value) {
+		case 1:	case 2:	case 3:	case 4:
+			return 'standings__total--champions-league';
+			break;
+
+		case 5:	case 6:
+			return 'standings__total--europa-league';
+			break;
+
+		case 7:
+			return 'standings__total--europa-league-qual';
+			break;
+
+		case 18: case 19: case 20:
+			return 'standings__total--relegation';
+			break;
+
+		default:
+			return '';
+	}
+}
+
+let promotionBundesliga = (value) => {
+	switch (value) {
+		case 1:	case 2: case 3: case 4:
+			return 'standings__total--champions-league';
+			break;
+
+		case 5:	case 6:
+			return 'standings__total--europa-league';
+			break;
+
+		case 7:
+			return 'standings__total--europa-league-qual';
+			break;
+
+		case 18: case 19: case 20:
+			return 'standings__total--relegation';
+			break;
+
+		default:
+			return '';
+	}
+}
 
 
-}).then(() =>{
-	fetch('https://api.football-data.org/v2/competitions/2021/scorers?limit=10', {
+
+let getData = (value) => {
+	if(competitionId === value)
+		return;
+
+	competitionId = value;
+
+	//fetch standings
+	fetch(`https://api.football-data.org/v2/competitions/${competitionId}/standings`, {
 		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
-	}).then(response => response.json())
+	})
+		.then(response => response.json())
 
-	.then(response => {
-		let name, logoUrl;
-
-		for (let i = 0; i < response.scorers.length; i++) {
-
-			name = response.scorers[i].team.name;
-			name = deleteFC(name);
-
-			for(let j=0; j<clubLogo.length; j++){
-				if(name === clubLogo[j][0])
-					logoUrl = clubLogo[j][1];
-			}
+		.then(response => {
+			let name, elimination = "";
+			// clubLogo = [];
+			let currentMatchday = response.season.currentMatchday;
 			
+			//clear tables and add headers
+			clearStandingsTablesAddHeaders();
 
-			$(`.top-scorers__table`).append(`
-				<tr>
-					<td>${i + 1}</td>
-					<td>${response.scorers[i].player.name}</td>
-					<td><img height=56 src="${logoUrl}"></td>
-					<td class="ta-left">${name}</td>
-					<td>${response.scorers[i].numberOfGoals}</td>
-				</tr>
-			`);
-		}
-		// console.log(response);
-		$(`.top-scorers`).show(500);
-	}); 
-}); 
+			for (let i = 1; i <= 20; i++) {
+
+				name = response.standings[0].table[i - 1].team.name;
+				//delete tail " FC"
+				name = deleteFC(name);
+
+				elimination = "";
+
+				if (competitionId === 2021 || competitionId === 2019)
+					elimination = promotionBPL(i);
+
+				else if (competitionId === 2014)
+					elimination = promotionLaLiga(i);
+
+				else if (competitionId === 2002)
+					elimination = promotionBundesliga(i);
 
 
 
+				$(`.standings__total--table`).append(`
+					<tr>
+						<td class="${elimination} place">${response.standings[0].table[i - 1].position}</td>
+						<td><img height=56 src="${response.standings[0].table[i - 1].team.crestUrl}"></td>
+						<td>${name}</td>
+						<td>${response.standings[0].table[i - 1].playedGames}</td>
+						<td>${response.standings[0].table[i - 1].won}</td>
+						<td>${response.standings[0].table[i - 1].draw}</td>
+						<td>${response.standings[0].table[i - 1].lost}</td>
+						<td>${response.standings[0].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
+						<td>${response.standings[0].table[i - 1].points}</td>
+					</tr>
+				`);
+
+				name = response.standings[1].table[i - 1].team.name;
+				//delete tail " FC"
+				name = deleteFC(name);
+
+				$(`.standings__home--table`).append(`
+					<tr>
+						<td class="place">${response.standings[1].table[i - 1].position}</td>
+						<td><img height=56 src="${response.standings[1].table[i - 1].team.crestUrl}"></td>
+						<td>${name}</td>
+						<td>${response.standings[1].table[i - 1].playedGames}</td>
+						<td>${response.standings[1].table[i - 1].won}</td>
+						<td>${response.standings[1].table[i - 1].draw}</td>
+						<td>${response.standings[1].table[i - 1].lost}</td>
+						<td>${response.standings[1].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
+						<td>${response.standings[1].table[i - 1].points}</td>
+					</tr>
+				`);
+
+				name = response.standings[2].table[i - 1].team.name;
+				//delete tail " FC"
+				name = deleteFC(name);
 
 
+				$(`.standings__away--table`).append(`
+					<tr>
+						<td class="place">${response.standings[2].table[i - 1].position}</td>
+						<td><img height=56 src="${response.standings[2].table[i - 1].team.crestUrl}"></td>
+						<td>${name}</td>
+						<td>${response.standings[2].table[i - 1].playedGames}</td>
+						<td>${response.standings[2].table[i - 1].won}</td>
+						<td>${response.standings[2].table[i - 1].draw}</td>
+						<td>${response.standings[2].table[i - 1].lost}</td>
+						<td>${response.standings[2].table[i - 1].goalsFor}:${response.standings[0].table[i - 1].goalsAgainst}</td>
+						<td>${response.standings[2].table[i - 1].points}</td>
+					</tr>
+				`);
+
+
+				clubLogo.push([name, response.standings[2].table[i - 1].team.crestUrl]);
+			}
+
+			$(`.standings`).show(500);
+			getMatchesByMatchday(currentMatchday);
+
+
+		}).then(() => {
+			fetch(`https://api.football-data.org/v2/competitions/${competitionId}/scorers?limit=10`, {
+				headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
+			}).then(response => response.json())
+
+				.then(response => {
+					let name, logoUrl;
+
+					$('.top-scorers__table').html(`
+						<tr>
+							<th>#</th>
+							<th class="ta-left">Player</th>
+							<th></th>
+							<th class="ta-left">Team</th>
+							<th>G</th>
+						</tr>
+					`);
+
+					
+
+					for (let i = 0; i < response.scorers.length; i++) {
+
+						name = response.scorers[i].team.name;
+						name = deleteFC(name);
+
+						for (let j = 0; j < clubLogo.length; j++) {
+							if (name === clubLogo[j][0])
+								logoUrl = clubLogo[j][1];
+						}
+
+						$(`.top-scorers__table`).append(`
+							<tr>
+								<td>${i + 1}</td>
+								<td>${response.scorers[i].player.name}</td>
+								<td><img height=56 src="${logoUrl}"></td>
+								<td class="ta-left">${name}</td>
+								<td>${response.scorers[i].numberOfGoals}</td>
+							</tr>
+						`);
+					}
+					// console.log(response);
+					$(`.top-scorers`).show(500);
+				});
+		}).catch((error) =>{
+			alert("Something went wrong");
+		}); 
+}
 
 
 let getMatchesByMatchday = (matchday) => {
-	fetch(`https://api.football-data.org//v2/competitions/2021/matches?matchday=${matchday}`, {
+	fetch(`https://api.football-data.org//v2/competitions/${competitionId}/matches?matchday=${matchday}`, {
 		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 	}).then(response => response.json())
 	
 	.then(response => {
 		console.log(response);
+
+
+		//append options in select
+		$('#matchday-select').html(``);
+		let matchdays = response.count*4-2;
+
+		for(let p=1; p<=matchdays; p++){
+			$('#matchday-select').append(`
+				<option class="matches__option--${p}"  value="${p}" >${p}</option>
+			`);
+		}
 
 		let score = '-';
 		let nameHome, nameAway;
@@ -169,8 +274,10 @@ let getMatchesByMatchday = (matchday) => {
 		// set selected option
 		$(`.matches__option--${matchday}`).attr('selected', 'selected');
 
+
+
 		for (let i = 0; i < response.count; i++) {
-			
+
 			score = '-';
 			//get names
 			nameHome = response.matches[i].homeTeam.name;
@@ -218,6 +325,9 @@ let getMatchesByMatchday = (matchday) => {
 				</tr>
 			`);
 		}
+	})
+	.catch((error) => {
+		alert("Something went wrong");
 	});
 }
 
@@ -233,7 +343,6 @@ $('.standings__button--total').on('click', () => {
 	$(".standings__button--total").attr("class", "standings__button--total active");
 	$(".standings__button--home").attr("class", "standings__button--home");
 	$(".standings__button--away").attr("class", "standings__button--away");
-
 
 	$('.standings__total').delay(200).fadeIn(500);
 	$('.standings__home').fadeOut(200);
@@ -264,3 +373,26 @@ $('#matchday-select').on('change', () =>{
 	getMatchesByMatchday($('#matchday-select').val());
 });
 
+
+function clearStandingsTablesAddHeaders(){
+	$('.standings__total--table').html(`
+		<tr>
+			<th colspan="3">Club</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>G</th><th>Pts</th>
+		</tr>
+	`);
+
+	$('.standings__away--table').html(`
+		<tr>
+			<th colspan="3">Club</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>G</th><th>Pts</th>
+		</tr>
+	`);
+
+	$('.standings__home--table').html(`
+		<tr>
+			<th colspan="3">Club</th><th>MP</th><th>W</th><th>D</th><th>L</th><th>G</th><th>Pts</th>
+		</tr>
+	`);
+}
+
+
+getData(2019);
