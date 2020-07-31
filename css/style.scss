@@ -22,17 +22,80 @@ $width: 600px;
 body{
     @include size(100%, 100vh);
     font-size: 15px;
-    font-family: arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
     background-color: $background-color;
     margin:0;
 } 
+
+li:hover{
+    cursor: pointer;
+}
+
+
+.tabs 
+
+.is-active{
+    a {
+        color: #3273dc;
+        background-color: #fff;
+        border-color: #dbdbdb;
+        border-bottom-color: blue !important;
+        transition: all 0.5s;
+    }
+}
 
 main{
     margin: auto;
 }
 
+.tabs {
+    // align-items: stretch;
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    white-space: nowrap;
+
+    ul {
+        align-items: center;
+        border-bottom-color: #dbdbdb;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 0;
+        justify-content: center;
+    }
+
+    li {
+        display: block;
+    }
+
+    a {
+        border: 1px solid transparent;
+        border-radius: 4px 0;
+        align-items: center;
+        border-bottom: 1px solid #dbdbdb;
+        color: #4a4a4a;
+        display: flex;
+        justify-content: center;
+        // margin-bottom: -1px;
+        padding: .5em 1em;
+        vertical-align: top;
+    }
+}
+
+.buttons{
+    margin: 10px auto;
+    width: $width;
+    padding:10px 20px;
+}
+
 .standings {
     h1{
+        font-size: 30px;
+    }
+
+    h1, h2{
         width: $width;
     }
 }
@@ -57,11 +120,6 @@ button{
     color: white;
 }
 
-
-.standings__home, .standings__away{
-    display: none;
-}
-
 .standings{
     display: none;
     margin-right:auto;
@@ -71,6 +129,10 @@ button{
     border-radius: 5px;
     background-color: rgb(236, 236, 236);
     @include box-shadow(0px, 0px, 15px, -4px, 0.75);
+
+    &:__home, &:__away {
+        display: none;
+    }
 
     td:nth-child(2){
         padding:0;
@@ -122,11 +184,11 @@ tr:hover{
     border-radius: 5px;
     background-color: rgb(236, 236, 236);
     @include box-shadow(0px, 0px, 15px, -4px, 0.75);
-}
 
-.top-scorers__table td:nth-child(2){
-    text-align: left;
-} 
+    &:__table td:nth-child(2) {
+        text-align: left;
+    }
+}
 
 .matches{
     width: $width;
@@ -171,7 +233,10 @@ tr:hover{
             margin-top: 1px;
         }
 
-        .standings__total--champions-league, .standings__total--europa-league, .standings__total--europa-league-qual, .standings__total--relegation{
+        .standings__total--champions-league, 
+        .standings__total--europa-league, 
+        .standings__total--europa-league-qual, 
+        .standings__total--relegation{
             @include size(12px, 12px);
             margin-right: 10px;
             border-radius: 0;
@@ -187,7 +252,7 @@ select{
 }
 
 .matches__table--date{
-    background-color: rgb(77, 77, 77);
+    background-color: #3772a5;
     color: white;
 
     td{
@@ -201,7 +266,7 @@ select{
 
     &:hover{
         cursor: default;
-        background-color: rgb(77, 77, 77);
+        background-color: #3772a5;
     }
 }
 
@@ -221,7 +286,7 @@ select{
         width: 98%;
         margin: auto;
 
-        h1{
+        h1, h2{
             width: 100%;
         }
     }

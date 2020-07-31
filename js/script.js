@@ -94,6 +94,9 @@ let getData = (value) => {
 		.then(response => response.json())
 
 		.then(response => {
+			console.log(response);
+			
+			$('h1').html(response.competition.name);
 			let name, elimination = "";
 			// clubLogo = [];
 			let currentMatchday = response.season.currentMatchday;
@@ -227,9 +230,9 @@ let getData = (value) => {
 		}); 
 }
 
-
+	
 let getMatchesByMatchday = (matchday) => {
-	fetch(`https://api.football-data.org//v2/competitions/${competitionId}/matches?matchday=${matchday}`, {
+	fetch(`https://api.football-data.org/v2/competitions/${competitionId}/matches?matchday=${matchday}`, {
 		headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
 	}).then(response => response.json())
 	
@@ -394,5 +397,28 @@ function clearStandingsTablesAddHeaders(){
 	`);
 }
 
+function setActive(value) {
+	
+	switch(value){
+		case 1:
+			$('.tabs__PL').attr('class', 'tabs__PL is-active');
+			$('.tabs__LaLiga').attr('class', 'tabs__LaLiga');
+			$('.tabs__SerieA').attr('class', 'tabs__SerieA');
+			break;
 
-getData(2019);
+		case 2:
+			$('.tabs__PL').attr('class', 'tabs__PL');
+			$('.tabs__LaLiga').attr('class', 'tabs__LaLiga  is-active');
+			$('.tabs__SerieA').attr('class', 'tabs__SerieA');
+			break;
+
+		case 3:
+			$('.tabs__PL').attr('class', 'tabs__PL');
+			$('.tabs__LaLiga').attr('class', 'tabs__LaLiga');
+			$('.tabs__SerieA').attr('class', 'tabs__SerieA is-active');
+			break;
+	}
+}
+
+
+getData(2021);

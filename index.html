@@ -9,20 +9,45 @@
 	<link
 		href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAArrCwAJ+hoQCQkpIA6OrqABocHADZ29sAcnR0AMrMzACsrq4AjpCQAMjKygC5u7sAqqysAJudnQDz9fUA1dfXABYYGABfYWEAioyMAOLk5AAjJSUA09XVABQWFgBsbm4AxMbGAF1fXwC1t7cATlBQAKaoqAA/QUEAiIqKAODi4gDR09MAs7W1AKSmpgD8/v4AhoiIAN7g4ACxs7MAoqSkAJOVlQCEhoYA3N7eAHV3dwDNz88AvsDAAFdZWQCvsbEASEpKAPj6+gDLzc0AZGZmALy+vgBVV1cAra+vAEZISAD2+PgAgIKCANja2gBxc3MAycvLAAoMDAC6vLwAU1VVAJyengA1NzcA5efnANbY2AAXGRkAb3FxAMfJyQAICgoAYGJiALi6ugCLjY0A4+XlANTW1gDFx8cABggIALa4uACnqakAQEJCAJiamgAxMzMAiYuLAOHj4wB6fHwA0tTUAGttbQClp6cA/f//AJaYmADu8PAAh4mJAHh6egDQ0tIAERMTAGlrawDBw8MAAgQEAFpcXACytLQAS01NAKOlpQDs7u4AhYeHAHZ4eAAAAgIAv8HBAKGjowCSlJQAKy0tAIOFhQDb3d0AdHZ2AA0PDwDMzs4AZWdnAL2/vwBWWFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACy5QdwAAAAAAAAAAAABzWSdKG20vHAAAAAAAAAB2BQdtMDAZNEhUAAAAAAAYQhoJGw0jJyJJZDEAAABjVSpKKApRQVwobnEsWgAAPz0bNwoDCl5VCilRWigAFkchAVMDYjg4QB8qPG8dDTsQNW01OgAAAAA2E2pqalxTZjMtbTRkFUU+Ul8lXnM0Z0BETU40bHRPAB5XRmp4ZQAAUXIGMBIAYThrSzo0EQAASCMPaSsIa0ZaNx0OHHAAAABYMlsEBlYgTgwwaGsAAAAAADkkWzkmFExgAU4AAAAAAAAATF1dAixHQ3UAAAAAAAAAAAAALEgXSQAAAAAAAPw/AADwDwAA4AcAAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA8A8AAPw/AAA="
 		rel="icon" type="image/x-icon" />
+		
 </head>
 
 <body>
 
 	<main>
+
+		<div class="tabs">
+			<ul>
+				<li class="tabs__PL is-active" onClick="getData(2021); setActive(1);">
+					<a>
+						<span>Premier League</span>
+					</a>
+				</li>
+				<li class="tabs__LaLiga" onClick="getData(2014); setActive(2);" ;>
+					<a>
+						<span>Primera Division</span>
+					</a>
+				</li>
+				<li class="tabs__SerieA" onClick="getData(2019); setActive(3);">
+					<a>
+						<span>Serie A</span>
+					</a>
+				</li>
+			</ul>
+		</div>
 		<!-- TEMPORARY BUTTONS -->
-		<button class="bpl"    onClick="getData(2021);">BPL</button>
-		<button class="laLiga" onClick="getData(2014);">LaLiga</button>
-		<button class="serieA" onClick="getData(2019);">SerieA</button>
+		<section class="buttons">
+			<button onClick="getData(2021);">Premier League</button>
+			<button onClick="getData(2014);">Primera Division</button>
+			<button onClick="getData(2019);">Serie A</button>
+		</section>
+		
 
 
 		<!-- STANDINGS -->
 		<section class="standings">
-			<h1>Standings</h1>
+			<h1></h1>
+			<h2>Standings</h2>
 			<div>
 				<button class="standings__button--total active">Total</button>
 				<button class="standings__button--home">Home</button>
@@ -79,7 +104,7 @@
 
 		<!-- TOP SCORERS -->
 		<section class="top-scorers">
-			<h1>Top Scorers</h1>
+			<h2>Top Scorers</h2>
 			<table class="top-scorers__table">
 				
 			</table>
@@ -87,7 +112,7 @@
 
 		<!-- MATCHES -->
 		<section class="matches">
-			<h1>Matches</h1>
+			<h2>Matches</h2>
 			<label for="matches__label">Matchday</label>
 			<select name="matchday-select" id="matchday-select" >
 	
