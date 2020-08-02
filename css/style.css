@@ -18,10 +18,10 @@ li:hover {
 
 .tabs
 .is-active a {
-  color: #3273dc;
-  background-color: #fff;
+  color: white;
+  background-color: #69b452;
   border-color: #dbdbdb;
-  border-bottom-color: blue !important;
+  border-bottom-color: transparent !important;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -71,7 +71,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-bottom: 1px solid #dbdbdb;
   color: #4a4a4a;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,14 +78,9 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: -1px;
   padding: .5em 1em;
   vertical-align: top;
-}
-
-.buttons {
-  margin: 10px auto;
-  width: 600px;
-  padding: 10px 20px;
 }
 
 .standings h1 {
@@ -102,7 +96,8 @@ button {
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  background-color: lightgray;
+  background-color: white;
+  border: 1px solid #b6b6b6;
   margin-right: 2px;
   -webkit-transition: all .4s;
   transition: all .4s;
@@ -114,6 +109,7 @@ button:hover {
 
 .active {
   background-color: #69b452;
+  border-color: #69b452;
   color: white;
 }
 

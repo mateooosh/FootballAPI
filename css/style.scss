@@ -36,10 +36,10 @@ li:hover{
 
 .is-active{
     a {
-        color: #3273dc;
-        background-color: #fff;
+        color: white;
+        background-color: #69b452;
         border-color: #dbdbdb;
-        border-bottom-color: blue !important;
+        border-bottom-color: transparent !important;
         transition: all 0.5s;
     }
 }
@@ -74,20 +74,13 @@ main{
         border: 1px solid transparent;
         border-radius: 4px 0;
         align-items: center;
-        border-bottom: 1px solid #dbdbdb;
         color: #4a4a4a;
         display: flex;
         justify-content: center;
-        // margin-bottom: -1px;
+        margin-bottom: -1px;
         padding: .5em 1em;
         vertical-align: top;
     }
-}
-
-.buttons{
-    margin: 10px auto;
-    width: $width;
-    padding:10px 20px;
 }
 
 .standings {
@@ -105,7 +98,8 @@ button{
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
-    background-color: rgb(211, 211, 211);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(182, 182, 182);
     margin-right: 2px;
     transition: all .4s;
 
@@ -117,6 +111,7 @@ button{
 
 .active{
     background-color: rgb(105, 180, 82);
+    border-color: rgb(105, 180, 82);
     color: white;
 }
 
