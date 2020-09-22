@@ -1,5 +1,7 @@
 # footscore
 
+footscore.netlify.app
+
 ## Project setup
 ```
 npm install
