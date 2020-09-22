@@ -1,6 +1,6 @@
 # footscore
 
-footscore.netlify.app
+https://footscore.netlify.app
 
 ## Project setup
 ```
