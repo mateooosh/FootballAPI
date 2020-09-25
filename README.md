@@ -1,4 +1,20 @@
-# footscore
+# Footscore
+Application that makes use of the football-data.org service for fetching and displaying football standings, matches and top scorers.
+
+## Technologies
+ Project is created with:
+* Vue.js 
+* Vue CLI 
+* Bootstrap
+* HTML, SCSS
+* JavaScript, AJAX
+
+## Demo
+Here is a working live demo: [Footscore](https://footscore.netlify.app/)
+
+
+<br/>
+
 
 ## Project setup
 ```
@@ -15,10 +31,8 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/)
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
