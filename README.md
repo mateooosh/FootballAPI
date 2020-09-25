@@ -1,5 +1,5 @@
 # Footscore
-Application that makes use of the football-data.org service for fetching and displaying football standings, matches and top scorers.
+Web Application that makes use of the api-football.com service for fetching and displaying football standings, matches and top scorers.
 
 ## Technologies
  Project is created with:
