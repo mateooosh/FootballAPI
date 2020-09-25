@@ -1,8 +1,8 @@
 <template>
   <Navbar/>
   
-  <a href="https://www.efl.com/" target="_blank" title="Championship Official Website">
-    <img class="my-4" src="../assets/championship.png" width="180" alt="Championship">
+  <a href="https://ekstraklasa.org/" target="_blank" title="Ekstraklasa Official Website">
+    <img class="my-4" src="../assets/ekstraklasa.jpg" width="300" alt="Ekstraklasa">
   </a>
   
   <Standing :promotions="promotions" :leagueId="leagueId"/>
@@ -14,7 +14,7 @@ import Navbar from '@/components/Navbar.vue';
 import Standing from '@/components/Standing.vue';
 import TopScorers from '@/components/TopScorers.vue';
 export default {
-    name: 'Championship',
+    name: 'Ekstraklasa',
     components:{
         Navbar,
         Standing,

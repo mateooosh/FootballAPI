@@ -3,41 +3,32 @@
   <a href="https://www.bundesliga.com/en/bundesliga" target="_blank" title="Bundesliga official website">
     <img class="my-4" src="../assets/bundesliga.png" width="200" alt="Bundesliga">
   </a>
-  
-  <Standing v-if="isVisible" :data="standings" :promotions="promotions"/>
+  <Standing :promotions="promotions" :leagueId="leagueId"/>
+  <TopScorers :leagueId="leagueId" />
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Standing from '@/components/Standing.vue';
+import TopScorers from '@/components/TopScorers.vue';
 export default {
     name: 'Bundesliga',
     components:{
         Navbar,
-        Standing
+        Standing,
+        TopScorers,
     },
     data(){
       return{
-        isVisible: false,
-        leagueId: 2002,
-        standings: {},
+        leagueId: 78,
         promotions: [[0,1,2,3], [], [4], [5], [], [], [15,16,17]],
       }
     },
-    mounted(){
-      // fetch standing data
-      fetch(`https://api.football-data.org/v2/competitions/${this.leagueId}/standings`, {headers: { 'X-Auth-Token': 'ab0d13d51e7c463d9e12ca8e1036e567' }
-      })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response);
-        this.standings = response;
-        this.isVisible = true;
-      })
-    }
 }
+      
 </script>
 
 <style>
+
 
 </style>

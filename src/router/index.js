@@ -50,6 +50,14 @@ const routes = [
     path: '/championship',
     name: 'Championship',
     component: () => import('../views/Championship.vue')
+  }, {
+    path: '/ekstraklasa',
+    name: 'Ekstraklasa',
+    component: () => import('../views/Ekstraklasa.vue')
+  }, {
+    path: '/russian-premier-league',
+    name: 'Russia',
+    component: () => import('../views/Russia.vue')
   }
 ]
 

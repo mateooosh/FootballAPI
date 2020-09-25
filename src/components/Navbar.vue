@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light navbar-sticky-top bg-primary py-3 h5">
+    <nav class="navbar navbar-expand-md navbar-light navbar-sticky-top bg-success py-3 h5">
         <div class="container">
 
             <a class="navbar-brand text-white font-weight-bolder " href="#">FootScore</a>
@@ -9,7 +9,7 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-center" id="main-menu">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item text-white px-4">
                         <router-link class="nav-link text-white" to="/">Home</router-link> 
@@ -19,7 +19,7 @@
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                         Leagues
                         </a>
-                        <div class="dropdown-menu text-left">
+                        <div class="dropdown-menu text-left bg-light">
                             <router-link class="dropdown-item" to="/bundesliga">
                                 <img class="mr-2" src="https://www.countryflags.io/de/flat/32.png" width="26" alt="Germany">
                                 Bundesliga
@@ -59,6 +59,16 @@
                             <router-link class="dropdown-item" to="/championship">
                                 <img class="mr-2" src="https://flagcdn.com/w40/gb-eng.webp" width="26" alt="England">
                                 Championship
+                            </router-link> 
+
+                            <router-link class="dropdown-item" to="/ekstraklasa">
+                                <img class="mr-2" src="https://www.countryflags.io/pl/flat/32.png" width="26" alt="Poland">
+                                Ekstraklasa
+                            </router-link> 
+
+                            <router-link class="dropdown-item" to="/russian-premier-league">
+                                <img class="mr-2" src="https://www.countryflags.io/ru/flat/32.png" width="26" alt="Russia">
+                                Russian Premier League
                             </router-link> 
                         </div>
                     </li>
