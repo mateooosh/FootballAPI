@@ -21,7 +21,7 @@
                         <th class="pl-1 pr-1" scope="col">L</th>
                         <th class="pl-1 pr-1" scope="col">G</th>
                         <th class="pl-1 pr-1" scope="col">Pts</th>
-                        <th class="pl-1 pr-1" colspan="5" scope="col">Form</th>
+                        <th class="pl-1 pr-1" scope="col">Form</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,52 +48,46 @@
                         <td class="pl-1 pr-1">{{team.all.goals.for}}:{{team.all.goals.against}}</td>
                         <td class="pl-2 pr-2">{{team.points}}</td>
 
-                        <td  class="px-0">
+                        <td class="d-flex px-0 justify-content-end">
                             <div 
                                 :class="{ win : team.form.charAt(0)=='W', 
                                          draw : team.form.charAt(0)=='D',
                                          lose : team.form.charAt(0)=='L',}">
-                                {{team.form.charAt(0)}}
+                                <span v-if="team.form.charAt(0)!=''">{{team.form.charAt(0)}}</span>
                             </div>
-                        </td>
 
-                        <td  class="px-0">
                             <div 
                                 :class="{ win : team.form.charAt(1)=='W', 
                                          draw : team.form.charAt(1)=='D',
                                          lose : team.form.charAt(1)=='L',}">
-                                {{team.form.charAt(1)}}
+                                <span v-if="team.form.charAt(1)!=''">{{team.form.charAt(1)}}</span>
                             </div>
-                        </td>
 
-                        <td  class="px-0">
                             <div 
                                 :class="{ win : team.form.charAt(2)=='W', 
                                          draw : team.form.charAt(2)=='D',
                                          lose : team.form.charAt(2)=='L',}">
-                                {{team.form.charAt(2)}}
+                                <span v-if="team.form.charAt(2)!=''">{{team.form.charAt(2)}}</span>
                             </div>
-                        </td>
 
-                        <td class="px-0">
-                            <div 
+                             <div 
                                 :class="{ win : team.form.charAt(3)=='W', 
                                          draw : team.form.charAt(3)=='D',
                                          lose : team.form.charAt(3)=='L',}">
-                                {{team.form.charAt(3)}}
+                                <span v-if="team.form.charAt(3)!=''">{{team.form.charAt(3)}}</span>
                             </div>
-                        </td>
 
-                        <td  class="px-0">
                             <div 
                                 :class="{ win : team.form.charAt(4)=='W', 
                                          draw : team.form.charAt(4)=='D',
                                          lose : team.form.charAt(4)=='L',}">
-                                {{team.form.charAt(4)}}
+                                <span v-if="team.form.charAt(4)!=''">{{team.form.charAt(4)}}</span>
                             </div>
                         </td>
+
+                        
                     </tr>
-                </tbody>
+                </tbody>    
             </table>
 
             <div v-if="promotions[0].length" class="promotions container d-flex align-items-center">
@@ -183,7 +177,7 @@ export default {
     },
     data(){
         return{
-            totalStandingIsVisible: true,  
+            totalStandingIsVisible: false,  
             standings: {
     "get": "standings",
     "parameters": {
@@ -1127,7 +1121,8 @@ $relegation: #bd0000;
 
 .win, .draw, .lose{
     margin-right: 2px;
-    padding: 0 3px;
+    // padding: 0 5px;
+    width: 22px;
     // font-size: 16px;
     font-weight: 700;
     border-radius: 3px;

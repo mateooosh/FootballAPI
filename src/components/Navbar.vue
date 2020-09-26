@@ -86,7 +86,6 @@
             </div>
         </div>
     </nav>
-    <router-view/>
 </template>
 
 <script>
@@ -99,6 +98,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+a{
+    padding: 0 1.5 rem;
+    img{
+        padding-bottom: 4px;
+    }
+}
 @media(min-width:768px){
     .dropdown-menu {
         display: block;

@@ -2,6 +2,8 @@
   <section class="container p-0 mt-5 " style="max-width: 700px;">
         <h1 class="mb-3">Top Scorers</h1>
 
+        <Modal v-if="modalIsVisible" :player="playerForModal" v-on:close-modal="setModalFalse"/>
+
         <!-- loading animation -->
         <div v-if="!topScorersIsVisible" class="lds-dual-ring"></div>
 
@@ -23,7 +25,7 @@
                         <td class="p-1">
                             <img :src="item.player.photo" height="40" alt="">
                         </td>
-                        <td @click="showPlayer(index)" data-toggle="modal" data-target="#exampleModalCenter" class="text-left p-0 ">{{item.player.name}}</td>
+                        <td data-toggle="modal" data-target="#exampleModalCenter" class="text-left p-0 ">{{item.player.name}}</td>
 
                         <td class="p-1">
                             <img :src="item.statistics[0].team.logo" height="30" alt="">
@@ -38,8 +40,7 @@
             </table>
         </div>
 
-        <Modal v-if="modalIsVisible" :player="playerForModal" v-on:close-modal="setModalFalse"/>
-        
+
     </section>
 </template>
 
@@ -1980,6 +1981,7 @@ export default {
         showPlayer(index){
             this.playerForModal = this.topScorers.response[index];
             this.modalIsVisible = true;
+            console.log(this.playerForModal);
         },
         setModalFalse(){
             this.modalIsVisible = false;
@@ -2010,9 +2012,27 @@ export default {
 
 <style lang="scss" scoped>
 
-.table td, .table th {
-    vertical-align: middle; 
-    cursor: pointer;
+@media(max-width: 576px){
+    .table td, .table th {
+        font-size:12px;
+
+    }
+
+    img{
+        height: 35px;
+    }
+
+    tr td:nth-child(4) img{
+        height: 27px;
+    }
+}
+
+.table {
+    td, th{
+        vertical-align: middle; 
+        cursor: pointer;
+    }
+    
 }
 
 //loading animation

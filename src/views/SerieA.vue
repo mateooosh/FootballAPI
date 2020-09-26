@@ -7,18 +7,21 @@
   
   <Standing :promotions="promotions" :leagueId="leagueId"/>
   <TopScorers :leagueId="leagueId" />
+  <Footer/>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue';
 import Standing from '@/components/Standing.vue';
 import TopScorers from '@/components/TopScorers.vue';
+import Footer from '@/components/Footer.vue';
 export default {
     name: 'SerieA',
     components:{
         Navbar,
         Standing,
         TopScorers,
+        Footer,
     },
     data(){
       return{
