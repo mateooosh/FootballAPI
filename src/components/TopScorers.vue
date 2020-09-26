@@ -56,7 +56,7 @@ export default {
     },
     data(){
         return{
-            topScorersIsVisible: false,
+            topScorersIsVisible: true,
             modalIsVisible: false,
             playerForModal: {},
             topScorers: {
@@ -2015,7 +2015,6 @@ export default {
 @media(max-width: 576px){
     .table td, .table th {
         font-size:12px;
-
     }
 
     img{

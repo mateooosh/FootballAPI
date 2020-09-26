@@ -1,14 +1,12 @@
 <template>
   <section class="container p-0" style="max-width: 700px;">
         
-        
-        
         <h1 class="mt-4 mb-3">Standings</h1>
 
         <!-- loading animation -->
         <div v-if="!totalStandingIsVisible" class="lds-dual-ring"></div>
 
-        <!-- Total standing-->
+        <!-- Total standing--> 
         <div v-if="totalStandingIsVisible" class="table-responsive px-1">
         <!-- <div class="table-responsive px-1"> -->
             <table class="table table-hover">
@@ -21,7 +19,6 @@
                         <th class="pl-1 pr-1" scope="col">L</th>
                         <th class="pl-1 pr-1" scope="col">G</th>
                         <th class="pl-1 pr-1" scope="col">Pts</th>
-                        <th class="pl-1 pr-1" scope="col">Form</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,45 +44,6 @@
                         <td class="pl-1 pr-1">{{team.all.lose}}</td>
                         <td class="pl-1 pr-1">{{team.all.goals.for}}:{{team.all.goals.against}}</td>
                         <td class="pl-2 pr-2">{{team.points}}</td>
-
-                        <td class="d-flex px-0 justify-content-end">
-                            <div 
-                                :class="{ win : team.form.charAt(0)=='W', 
-                                         draw : team.form.charAt(0)=='D',
-                                         lose : team.form.charAt(0)=='L',}">
-                                <span v-if="team.form.charAt(0)!=''">{{team.form.charAt(0)}}</span>
-                            </div>
-
-                            <div 
-                                :class="{ win : team.form.charAt(1)=='W', 
-                                         draw : team.form.charAt(1)=='D',
-                                         lose : team.form.charAt(1)=='L',}">
-                                <span v-if="team.form.charAt(1)!=''">{{team.form.charAt(1)}}</span>
-                            </div>
-
-                            <div 
-                                :class="{ win : team.form.charAt(2)=='W', 
-                                         draw : team.form.charAt(2)=='D',
-                                         lose : team.form.charAt(2)=='L',}">
-                                <span v-if="team.form.charAt(2)!=''">{{team.form.charAt(2)}}</span>
-                            </div>
-
-                             <div 
-                                :class="{ win : team.form.charAt(3)=='W', 
-                                         draw : team.form.charAt(3)=='D',
-                                         lose : team.form.charAt(3)=='L',}">
-                                <span v-if="team.form.charAt(3)!=''">{{team.form.charAt(3)}}</span>
-                            </div>
-
-                            <div 
-                                :class="{ win : team.form.charAt(4)=='W', 
-                                         draw : team.form.charAt(4)=='D',
-                                         lose : team.form.charAt(4)=='L',}">
-                                <span v-if="team.form.charAt(4)!=''">{{team.form.charAt(4)}}</span>
-                            </div>
-                        </td>
-
-                        
                     </tr>
                 </tbody>    
             </table>
@@ -146,6 +104,7 @@
 //106 - ekstraklasa
 //235 - Russia
 //144 - Belgium
+//107 - 1 liga 
 
 
 export default {
@@ -177,7 +136,7 @@ export default {
     },
     data(){
         return{
-            totalStandingIsVisible: false,  
+            totalStandingIsVisible: true,  
             standings: {
     "get": "standings",
     "parameters": {
@@ -1108,11 +1067,13 @@ export default {
     ]
 }
         }
-    }
+    },
 }
 </script>
 
 <style scoped lang="scss">
+
+//variables
 $champions: #004682;
 $champions-quali:#1EA8EC;
 $europa: #7f0029;
@@ -1121,9 +1082,7 @@ $relegation: #bd0000;
 
 .win, .draw, .lose{
     margin-right: 2px;
-    // padding: 0 5px;
     width: 22px;
-    // font-size: 16px;
     font-weight: 700;
     border-radius: 3px;
     color: white;
