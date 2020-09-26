@@ -25,7 +25,7 @@ export default {
     },
     data(){
       return{
-        leagueId: 140,
+        leagueId: 235,
         promotions: [[0], [1], [], [2,3], [], [], [12,13,14,15]],
       }
     },
