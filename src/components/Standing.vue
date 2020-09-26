@@ -7,7 +7,7 @@
         <div v-if="!totalStandingIsVisible" class="lds-dual-ring"></div>
 
         <!-- Total standing--> 
-        <div v-if="totalStandingIsVisible" class="table-responsive px-1">
+        <div v-if="totalStandingIsVisible" class="table-responsive padding-1">
         <!-- <div class="table-responsive px-1"> -->
             <table class="table table-hover">
                 <thead>
@@ -37,7 +37,7 @@
                         <td class="p-2 text-center" style="width: 50px;">
                             <img :src=team.team.logo alt="logo" height="30">
                         </td>
-                        <td class="pl-1 pr-1 text-left" style="min-width: 180px;">{{team.team.name}}</td>
+                        <td class="pl-1 pr-1 text-left team-name">{{team.team.name}}</td>
                         <td class="pl-1 pr-1">{{team.all.played}}</td>
                         <td class="pl-1 pr-1">{{team.all.win}}</td>
                         <td class="pl-1 pr-1">{{team.all.draw}}</td>
@@ -70,12 +70,12 @@
 
             <div v-if="promotions[4].length" class="promotions container d-flex align-items-center">
                 <div class="promotion mr-2"></div>
-                <div class="description">Promotion - Premier League</div>
+                <div class="description">Promotion </div>
             </div>
 
             <div v-if="promotions[5].length" class="promotions container d-flex align-items-center">
                 <div class="promotion-playoff mr-2"></div>
-                <div class="description">Promotion - Premier League (Play Offs)</div>
+                <div class="description">Promotion (Play Offs)</div>
             </div>
 
             <div v-if="promotions[6].length" class="promotions container d-flex align-items-center">
@@ -1080,6 +1080,11 @@ $europa: #7f0029;
 $europa-quali: #c71585;
 $relegation: #bd0000;
 
+.padding-1{
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
 .win, .draw, .lose{
     margin-right: 2px;
     width: 22px;
@@ -1201,7 +1206,15 @@ $relegation: #bd0000;
     transform: rotate(360deg);
   }
 }
+.team-name{
+    min-width: 180px;
+}
 
+@media(max-width: 576px){
+    .team-name{
+        min-width: 120px;
+    }
+}
 
 </style>
 

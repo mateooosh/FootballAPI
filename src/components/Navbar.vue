@@ -58,6 +58,11 @@
                                 Ekstraklasa
                             </router-link> 
 
+                            <router-link class="dropdown-item" to="/division-1">
+                                <img class="mr-2" src="https://www.countryflags.io/pl/flat/32.png" width="26" alt="Poland">
+                                Division 1
+                            </router-link>
+
                             <router-link class="dropdown-item" to="/eredivisie">
                                 <img class="mr-2" src="https://www.countryflags.io/nl/flat/32.png" width="26" alt="Netherlands">
                                 Eredivisie
@@ -72,6 +77,8 @@
                                 <img class="mr-2" src="https://www.countryflags.io/ru/flat/32.png" width="26" alt="Russia">
                                 Russian Premier League
                             </router-link> 
+
+                            
                         </div>
                     </li>
 
