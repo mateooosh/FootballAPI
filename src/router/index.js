@@ -58,7 +58,7 @@ const routes = [
     path: '/russian-premier-league',
     name: 'Russia',
     component: () => import('../views/Russia.vue')
-  }
+  },
 ]
 
 const router = createRouter({

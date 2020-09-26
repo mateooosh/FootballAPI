@@ -31,7 +31,8 @@
                             </router-link> 
 
                             <router-link class="dropdown-item" to="/premier-league">
-                                <img class="mr-2" src="https://flagcdn.com/w40/gb-eng.webp" width="26" alt="England">
+                                <!-- <img class="mr-2" src="https://flagcdn.com/w40/gb-eng.webp" width="26" alt="England"> -->
+                                <img class="mr-2" src="https://www.countryflags.io/gb/flat/32.png" width="26" alt="Great Britain">
                                 Premier League
                             </router-link> 
 
@@ -47,6 +48,16 @@
 
                             <div class="dropdown-divider"></div>
 
+                            <router-link class="dropdown-item" to="/championship">
+                                <img class="mr-2" src="https://www.countryflags.io/gb/flat/32.png" width="26" alt="Great Britain">
+                                Championship
+                            </router-link> 
+
+                            <router-link class="dropdown-item" to="/ekstraklasa">
+                                <img class="mr-2" src="https://www.countryflags.io/pl/flat/32.png" width="26" alt="Poland">
+                                Ekstraklasa
+                            </router-link> 
+
                             <router-link class="dropdown-item" to="/eredivisie">
                                 <img class="mr-2" src="https://www.countryflags.io/nl/flat/32.png" width="26" alt="Netherlands">
                                 Eredivisie
@@ -56,16 +67,7 @@
                                 <img class="mr-2" src="https://www.countryflags.io/pt/flat/32.png" width="26" alt="Portugal">
                                 Primeira Liga
                             </router-link> 
-                            <router-link class="dropdown-item" to="/championship">
-                                <img class="mr-2" src="https://flagcdn.com/w40/gb-eng.webp" width="26" alt="England">
-                                Championship
-                            </router-link> 
-
-                            <router-link class="dropdown-item" to="/ekstraklasa">
-                                <img class="mr-2" src="https://www.countryflags.io/pl/flat/32.png" width="26" alt="Poland">
-                                Ekstraklasa
-                            </router-link> 
-
+                            
                             <router-link class="dropdown-item" to="/russian-premier-league">
                                 <img class="mr-2" src="https://www.countryflags.io/ru/flat/32.png" width="26" alt="Russia">
                                 Russian Premier League

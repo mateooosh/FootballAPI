@@ -48,7 +48,7 @@
                         <td class="pl-1 pr-1">{{team.all.goals.for}}:{{team.all.goals.against}}</td>
                         <td class="pl-2 pr-2">{{team.points}}</td>
 
-                        <td v-if="team.form.length>0" class="px-0">
+                        <td  class="px-0">
                             <div 
                                 :class="{ win : team.form.charAt(0)=='W', 
                                          draw : team.form.charAt(0)=='D',
@@ -57,39 +57,41 @@
                             </div>
                         </td>
 
-                        <td v-if="team.form.length>1"  class="px-0">
-                            <div :class="{ win : team.form.charAt(1)=='W', 
+                        <td  class="px-0">
+                            <div 
+                                :class="{ win : team.form.charAt(1)=='W', 
                                          draw : team.form.charAt(1)=='D',
                                          lose : team.form.charAt(1)=='L',}">
                                 {{team.form.charAt(1)}}
                             </div>
                         </td>
 
-                        <td v-if="team.form.length>2"  class="px-0">
-                            <div :class="{ win : team.form.charAt(2)=='W', 
+                        <td  class="px-0">
+                            <div 
+                                :class="{ win : team.form.charAt(2)=='W', 
                                          draw : team.form.charAt(2)=='D',
                                          lose : team.form.charAt(2)=='L',}">
                                 {{team.form.charAt(2)}}
                             </div>
                         </td>
 
-                        <td v-if="team.form.length>3"  class="px-0">
-                            <div :class="{ win : team.form.charAt(3)=='W', 
+                        <td class="px-0">
+                            <div 
+                                :class="{ win : team.form.charAt(3)=='W', 
                                          draw : team.form.charAt(3)=='D',
                                          lose : team.form.charAt(3)=='L',}">
                                 {{team.form.charAt(3)}}
                             </div>
                         </td>
 
-                        <td v-if="team.form.length>4"  class="px-0">
-                            <div :class="{ win : team.form.charAt(4)=='W', 
+                        <td  class="px-0">
+                            <div 
+                                :class="{ win : team.form.charAt(4)=='W', 
                                          draw : team.form.charAt(4)=='D',
                                          lose : team.form.charAt(4)=='L',}">
                                 {{team.form.charAt(4)}}
                             </div>
                         </td>
-                        
-
                     </tr>
                 </tbody>
             </table>
@@ -149,12 +151,12 @@
 //40 - championship
 //106 - ekstraklasa
 //235 - Russia
+//144 - Belgium
 
 
 export default {
     name: 'Standing',
     props:{
-        data: Object,
         promotions: Array,
         leagueId: Number,
     },
@@ -181,11 +183,11 @@ export default {
     },
     data(){
         return{
-        totalStandingIsVisible: false,    
-        standings: {
+            totalStandingIsVisible: true,  
+            standings: {
     "get": "standings",
     "parameters": {
-        "league": "78",
+        "league": "61",
         "season": "2020"
     },
     "errors": [],
@@ -197,220 +199,220 @@ export default {
     "response": [
         {
             "league": {
-                "id": 78,
-                "name": "Bundesliga 1",
-                "country": "Germany",
-                "logo": "https://media.api-sports.io/football/leagues/78.png",
-                "flag": "https://media.api-sports.io/flags/de.svg",
+                "id": 61,
+                "name": "Ligue 1",
+                "country": "France",
+                "logo": "https://media.api-sports.io/football/leagues/61.png",
+                "flag": "https://media.api-sports.io/flags/fr.svg",
                 "season": 2020,
                 "standings": [
                     [
                         {
                             "rank": 1,
                             "team": {
-                                "id": 157,
-                                "name": "Bayern Munich",
-                                "logo": "https://media.api-sports.io/football/teams/157.png"
+                                "id": 79,
+                                "name": "Lille",
+                                "logo": "https://media.api-sports.io/football/teams/79.png"
                             },
-                            "points": 3,
-                            "goalsDiff": 8,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "points": 11,
+                            "goalsDiff": 4,
+                            "group": "Ligue 1",
+                            "form": "WDWWD",
                             "status": "same",
                             "description": "Promotion - Champions League (Group Stage)",
                             "all": {
-                                "played": 1,
-                                "win": 1,
-                                "draw": 0,
+                                "played": 5,
+                                "win": 3,
+                                "draw": 2,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 8,
-                                    "against": 0
+                                    "for": 6,
+                                    "against": 2
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 1,
-                                "draw": 0,
+                                "played": 3,
+                                "win": 2,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 8,
-                                    "against": 0
+                                    "for": 4,
+                                    "against": 1
                                 }
                             },
                             "away": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 2,
+                                    "against": 1
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 2,
                             "team": {
-                                "id": 159,
-                                "name": "Hertha Berlin",
-                                "logo": "https://media.api-sports.io/football/teams/159.png"
+                                "id": 1063,
+                                "name": "Saint Etienne",
+                                "logo": "https://media.api-sports.io/football/teams/1063.png"
                             },
-                            "points": 3,
-                            "goalsDiff": 3,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "points": 10,
+                            "goalsDiff": 6,
+                            "group": "Ligue 1",
+                            "form": "DWWW",
                             "status": "same",
                             "description": "Promotion - Champions League (Group Stage)",
                             "all": {
-                                "played": 1,
-                                "win": 1,
+                                "played": 4,
+                                "win": 3,
+                                "draw": 1,
+                                "lose": 0,
+                                "goals": {
+                                    "for": 8,
+                                    "against": 2
+                                }
+                            },
+                            "home": {
+                                "played": 2,
+                                "win": 2,
                                 "draw": 0,
                                 "lose": 0,
                                 "goals": {
                                     "for": 4,
-                                    "against": 1
-                                }
-                            },
-                            "home": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 0,
-                                "goals": {
-                                    "for": 0,
                                     "against": 0
                                 }
                             },
                             "away": {
-                                "played": 1,
+                                "played": 2,
                                 "win": 1,
-                                "draw": 0,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
                                     "for": 4,
-                                    "against": 1
+                                    "against": 2
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 3,
                             "team": {
-                                "id": 165,
-                                "name": "Borussia Dortmund",
-                                "logo": "https://media.api-sports.io/football/teams/165.png"
+                                "id": 94,
+                                "name": "Rennes",
+                                "logo": "https://media.api-sports.io/football/teams/94.png"
                             },
-                            "points": 3,
-                            "goalsDiff": 3,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "points": 10,
+                            "goalsDiff": 4,
+                            "group": "Ligue 1",
+                            "form": "WWWD",
                             "status": "same",
-                            "description": "Promotion - Champions League (Group Stage)",
+                            "description": "Promotion - Champions League (Qualification)",
                             "all": {
-                                "played": 1,
-                                "win": 1,
-                                "draw": 0,
+                                "played": 4,
+                                "win": 3,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 0
+                                    "for": 9,
+                                    "against": 5
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 1,
+                                "played": 2,
+                                "win": 2,
                                 "draw": 0,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 0
+                                    "for": 4,
+                                    "against": 2
                                 }
                             },
                             "away": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 5,
+                                    "against": 3
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 4,
                             "team": {
-                                "id": 170,
-                                "name": "FC Augsburg",
-                                "logo": "https://media.api-sports.io/football/teams/170.png"
+                                "id": 82,
+                                "name": "Montpellier",
+                                "logo": "https://media.api-sports.io/football/teams/82.png"
                             },
-                            "points": 3,
-                            "goalsDiff": 2,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "points": 9,
+                            "goalsDiff": 5,
+                            "group": "Ligue 1",
+                            "form": "WWWL",
                             "status": "same",
-                            "description": "Promotion - Champions League (Group Stage)",
+                            "description": "Promotion - Europa League (Group Stage)",
                             "all": {
-                                "played": 1,
-                                "win": 1,
+                                "played": 4,
+                                "win": 3,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 1
+                                    "for": 10,
+                                    "against": 5
                                 }
                             },
                             "home": {
-                                "played": 0,
-                                "win": 0,
+                                "played": 3,
+                                "win": 3,
                                 "draw": 0,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 9,
+                                    "against": 3
                                 }
                             },
                             "away": {
                                 "played": 1,
-                                "win": 1,
+                                "win": 0,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 1
+                                    "for": 1,
+                                    "against": 2
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 5,
                             "team": {
-                                "id": 173,
-                                "name": "RB Leipzig",
-                                "logo": "https://media.api-sports.io/football/teams/173.png"
+                                "id": 116,
+                                "name": "Lens",
+                                "logo": "https://media.api-sports.io/football/teams/116.png"
                             },
-                            "points": 3,
+                            "points": 9,
                             "goalsDiff": 2,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "group": "Ligue 1",
+                            "form": "WWWL",
                             "status": "same",
-                            "description": "Promotion - Europa League (Group Stage)",
+                            "description": "Promotion - Europa Conference League (Qualification)",
                             "all": {
-                                "played": 1,
-                                "win": 1,
+                                "played": 4,
+                                "win": 3,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 1
+                                    "for": 7,
+                                    "against": 5
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 1,
+                                "played": 2,
+                                "win": 2,
                                 "draw": 0,
                                 "lose": 0,
                                 "goals": {
@@ -419,611 +421,700 @@ export default {
                                 }
                             },
                             "away": {
-                                "played": 0,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 4,
+                                    "against": 4
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 6,
                             "team": {
-                                "id": 167,
-                                "name": "1899 Hoffenheim",
-                                "logo": "https://media.api-sports.io/football/teams/167.png"
+                                "id": 91,
+                                "name": "Monaco",
+                                "logo": "https://media.api-sports.io/football/teams/91.png"
                             },
-                            "points": 3,
+                            "points": 7,
                             "goalsDiff": 1,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "group": "Ligue 1",
+                            "form": "LWWD",
                             "status": "same",
-                            "description": "Promotion - Europa Conference League (Qualification)",
+                            "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 1,
-                                "draw": 0,
-                                "lose": 0,
+                                "played": 4,
+                                "win": 2,
+                                "draw": 1,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 2
+                                    "for": 6,
+                                    "against": 5
                                 }
                             },
                             "home": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 1,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 4,
+                                    "against": 3
                                 }
                             },
                             "away": {
-                                "played": 1,
+                                "played": 2,
                                 "win": 1,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 3,
+                                    "for": 2,
                                     "against": 2
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 7,
                             "team": {
-                                "id": 160,
-                                "name": "SC Freiburg",
-                                "logo": "https://media.api-sports.io/football/teams/160.png"
+                                "id": 81,
+                                "name": "Marseille",
+                                "logo": "https://media.api-sports.io/football/teams/81.png"
                             },
-                            "points": 3,
-                            "goalsDiff": 1,
-                            "group": "Bundesliga",
-                            "form": "W",
+                            "points": 7,
+                            "goalsDiff": 0,
+                            "group": "Ligue 1",
+                            "form": "DLWW",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 1,
-                                "draw": 0,
-                                "lose": 0,
+                                "played": 4,
+                                "win": 2,
+                                "draw": 1,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 3,
-                                    "against": 2
+                                    "for": 5,
+                                    "against": 5
                                 }
                             },
                             "home": {
-                                "played": 0,
+                                "played": 2,
                                 "win": 0,
-                                "draw": 0,
-                                "lose": 0,
+                                "draw": 1,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 1,
+                                    "against": 3
                                 }
                             },
                             "away": {
-                                "played": 1,
-                                "win": 1,
+                                "played": 2,
+                                "win": 2,
                                 "draw": 0,
                                 "lose": 0,
                                 "goals": {
-                                    "for": 3,
+                                    "for": 4,
                                     "against": 2
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 8,
                             "team": {
-                                "id": 169,
-                                "name": "Eintracht Frankfurt",
-                                "logo": "https://media.api-sports.io/football/teams/169.png"
+                                "id": 85,
+                                "name": "Paris Saint Germain",
+                                "logo": "https://media.api-sports.io/football/teams/85.png"
                             },
-                            "points": 1,
-                            "goalsDiff": 0,
-                            "group": "Bundesliga",
-                            "form": "D",
+                            "points": 6,
+                            "goalsDiff": 2,
+                            "group": "Ligue 1",
+                            "form": "WWLL",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 4,
+                                "win": 2,
+                                "draw": 0,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 1
+                                    "for": 4,
+                                    "against": 2
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 1,
                                 "goals": {
                                     "for": 1,
                                     "against": 1
                                 }
                             },
                             "away": {
-                                "played": 0,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 3,
+                                    "against": 1
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 9,
                             "team": {
-                                "id": 188,
-                                "name": "Arminia Bielefeld",
-                                "logo": "https://media.api-sports.io/football/teams/188.png"
+                                "id": 106,
+                                "name": "Stade Brestois 29",
+                                "logo": "https://media.api-sports.io/football/teams/106.png"
                             },
-                            "points": 1,
-                            "goalsDiff": 0,
-                            "group": "Bundesliga",
-                            "form": "D",
+                            "points": 6,
+                            "goalsDiff": -2,
+                            "group": "Ligue 1",
+                            "form": "WWLL",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 4,
+                                "win": 2,
+                                "draw": 0,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 1
+                                    "for": 7,
+                                    "against": 9
                                 }
                             },
                             "home": {
-                                "played": 0,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 5,
+                                    "against": 5
                                 }
                             },
                             "away": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 1
+                                    "for": 2,
+                                    "against": 4
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 10,
                             "team": {
-                                "id": 168,
-                                "name": "Bayer Leverkusen",
-                                "logo": "https://media.api-sports.io/football/teams/168.png"
+                                "id": 84,
+                                "name": "Nice",
+                                "logo": "https://media.api-sports.io/football/teams/84.png"
                             },
-                            "points": 1,
-                            "goalsDiff": 0,
-                            "group": "Bundesliga",
-                            "form": "D",
+                            "points": 6,
+                            "goalsDiff": -2,
+                            "group": "Ligue 1",
+                            "form": "LLWW",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 4,
+                                "win": 2,
+                                "draw": 0,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 5,
+                                    "against": 7
                                 }
                             },
                             "home": {
-                                "played": 0,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 2,
+                                    "against": 4
                                 }
                             },
                             "away": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 3,
+                                    "against": 3
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 11,
                             "team": {
-                                "id": 161,
-                                "name": "VfL Wolfsburg",
-                                "logo": "https://media.api-sports.io/football/teams/161.png"
+                                "id": 77,
+                                "name": "Angers",
+                                "logo": "https://media.api-sports.io/football/teams/77.png"
                             },
-                            "points": 1,
-                            "goalsDiff": 0,
-                            "group": "Bundesliga",
-                            "form": "D",
+                            "points": 6,
+                            "goalsDiff": -3,
+                            "group": "Ligue 1",
+                            "form": "LWLW",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 4,
+                                "win": 2,
+                                "draw": 0,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 3,
+                                    "against": 6
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 1,
-                                "lose": 0,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 1,
+                                    "against": 2
                                 }
                             },
                             "away": {
-                                "played": 0,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 2,
+                                    "against": 4
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 12,
                             "team": {
-                                "id": 192,
-                                "name": "FC Koln",
-                                "logo": "https://media.api-sports.io/football/teams/192.png"
+                                "id": 80,
+                                "name": "Lyon",
+                                "logo": "https://media.api-sports.io/football/teams/80.png"
                             },
-                            "points": 0,
-                            "goalsDiff": -1,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "points": 5,
+                            "goalsDiff": 2,
+                            "group": "Ligue 1",
+                            "form": "DLDW",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 0,
+                                "played": 4,
+                                "win": 1,
+                                "draw": 2,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 2,
+                                    "for": 5,
                                     "against": 3
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 1,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 1,
+                                "lose": 0,
                                 "goals": {
-                                    "for": 2,
-                                    "against": 3
+                                    "for": 4,
+                                    "against": 1
                                 }
                             },
                             "away": {
-                                "played": 0,
+                                "played": 2,
                                 "win": 0,
-                                "draw": 0,
-                                "lose": 0,
+                                "draw": 1,
+                                "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 1,
+                                    "against": 2
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 13,
                             "team": {
-                                "id": 172,
-                                "name": "VfB Stuttgart",
-                                "logo": "https://media.api-sports.io/football/teams/172.png"
+                                "id": 78,
+                                "name": "Bordeaux",
+                                "logo": "https://media.api-sports.io/football/teams/78.png"
                             },
-                            "points": 0,
-                            "goalsDiff": -1,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "points": 5,
+                            "goalsDiff": 1,
+                            "group": "Ligue 1",
+                            "form": "LDWD",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 0,
+                                "played": 4,
+                                "win": 1,
+                                "draw": 2,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 2,
-                                    "against": 3
+                                    "for": 3,
+                                    "against": 2
                                 }
                             },
                             "home": {
-                                "played": 1,
+                                "played": 2,
                                 "win": 0,
-                                "draw": 0,
-                                "lose": 1,
-                                "goals": {
-                                    "for": 2,
-                                    "against": 3
-                                }
-                            },
-                            "away": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
+                                "draw": 2,
                                 "lose": 0,
                                 "goals": {
                                     "for": 0,
                                     "against": 0
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "away": {
+                                "played": 2,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 3,
+                                    "against": 2
+                                }
+                            },
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 14,
                             "team": {
-                                "id": 182,
-                                "name": "Union Berlin",
-                                "logo": "https://media.api-sports.io/football/teams/182.png"
+                                "id": 83,
+                                "name": "Nantes",
+                                "logo": "https://media.api-sports.io/football/teams/83.png"
                             },
-                            "points": 0,
+                            "points": 5,
                             "goalsDiff": -2,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "group": "Ligue 1",
+                            "form": "LDLWD",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 1,
+                                "played": 5,
+                                "win": 1,
+                                "draw": 2,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 3
+                                    "for": 5,
+                                    "against": 7
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 1,
+                                "played": 2,
+                                "win": 1,
+                                "draw": 1,
+                                "lose": 0,
                                 "goals": {
-                                    "for": 1,
+                                    "for": 4,
                                     "against": 3
                                 }
                             },
                             "away": {
-                                "played": 0,
+                                "played": 3,
                                 "win": 0,
-                                "draw": 0,
-                                "lose": 0,
+                                "draw": 1,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 1,
+                                    "against": 4
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 15,
                             "team": {
-                                "id": 164,
-                                "name": "FSV Mainz 05",
-                                "logo": "https://media.api-sports.io/football/teams/164.png"
+                                "id": 92,
+                                "name": "Nimes",
+                                "logo": "https://media.api-sports.io/football/teams/92.png"
                             },
-                            "points": 0,
-                            "goalsDiff": -2,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "points": 4,
+                            "goalsDiff": 1,
+                            "group": "Ligue 1",
+                            "form": "DLLW",
                             "status": "same",
                             "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 1,
+                                "played": 4,
+                                "win": 1,
+                                "draw": 1,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 3
+                                    "for": 7,
+                                    "against": 6
                                 }
                             },
                             "home": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 0,
-                                "goals": {
-                                    "for": 0,
-                                    "against": 0
-                                }
-                            },
-                            "away": {
-                                "played": 1,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 3
+                                    "for": 6,
+                                    "against": 4
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "away": {
+                                "played": 2,
+                                "win": 0,
+                                "draw": 1,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 1,
+                                    "against": 2
+                                }
+                            },
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 16,
                             "team": {
-                                "id": 162,
-                                "name": "Werder Bremen",
-                                "logo": "https://media.api-sports.io/football/teams/162.png"
+                                "id": 97,
+                                "name": "Lorient",
+                                "logo": "https://media.api-sports.io/football/teams/97.png"
                             },
-                            "points": 0,
-                            "goalsDiff": -3,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "points": 3,
+                            "goalsDiff": -2,
+                            "group": "Ligue 1",
+                            "form": "LLLW",
                             "status": "same",
-                            "description": "Bundesliga (Relegation)",
+                            "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
+                                "played": 4,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 1,
+                                "lose": 3,
                                 "goals": {
-                                    "for": 1,
-                                    "against": 4
+                                    "for": 7,
+                                    "against": 9
                                 }
                             },
                             "home": {
-                                "played": 1,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 1,
+                                    "for": 5,
                                     "against": 4
                                 }
                             },
                             "away": {
-                                "played": 0,
+                                "played": 2,
                                 "win": 0,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 0
+                                    "for": 2,
+                                    "against": 5
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 17,
                             "team": {
-                                "id": 163,
-                                "name": "Borussia Monchengladbach",
-                                "logo": "https://media.api-sports.io/football/teams/163.png"
+                                "id": 112,
+                                "name": "Metz",
+                                "logo": "https://media.api-sports.io/football/teams/112.png"
                             },
-                            "points": 0,
-                            "goalsDiff": -3,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "points": 3,
+                            "goalsDiff": -2,
+                            "group": "Ligue 1",
+                            "form": "WLLL",
                             "status": "same",
-                            "description": "Relegation - 2. Bundesliga",
+                            "description": null,
                             "all": {
-                                "played": 1,
-                                "win": 0,
+                                "played": 4,
+                                "win": 1,
                                 "draw": 0,
-                                "lose": 1,
+                                "lose": 3,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 3
+                                    "for": 2,
+                                    "against": 4
                                 }
                             },
                             "home": {
-                                "played": 0,
-                                "win": 0,
-                                "draw": 0,
-                                "lose": 0,
-                                "goals": {
-                                    "for": 0,
-                                    "against": 0
-                                }
-                            },
-                            "away": {
-                                "played": 1,
-                                "win": 0,
+                                "played": 2,
+                                "win": 1,
                                 "draw": 0,
                                 "lose": 1,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 3
+                                    "for": 2,
+                                    "against": 2
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "away": {
+                                "played": 2,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 0,
+                                    "against": 2
+                                }
+                            },
+                            "update": "2020-09-26T00:00:00+00:00"
                         },
                         {
                             "rank": 18,
                             "team": {
-                                "id": 174,
-                                "name": "FC Schalke 04",
-                                "logo": "https://media.api-sports.io/football/teams/174.png"
+                                "id": 95,
+                                "name": "Strasbourg",
+                                "logo": "https://media.api-sports.io/football/teams/95.png"
                             },
-                            "points": 0,
-                            "goalsDiff": -8,
-                            "group": "Bundesliga",
-                            "form": "L",
+                            "points": 3,
+                            "goalsDiff": -5,
+                            "group": "Ligue 1",
+                            "form": "WLLL",
                             "status": "same",
-                            "description": "Relegation - 2. Bundesliga",
+                            "description": "Ligue 1 (Relegation)",
                             "all": {
+                                "played": 4,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 2,
+                                    "against": 7
+                                }
+                            },
+                            "home": {
+                                "played": 2,
+                                "win": 1,
+                                "draw": 0,
+                                "lose": 1,
+                                "goals": {
+                                    "for": 1,
+                                    "against": 2
+                                }
+                            },
+                            "away": {
+                                "played": 2,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 1,
+                                    "against": 5
+                                }
+                            },
+                            "update": "2020-09-26T00:00:00+00:00"
+                        },
+                        {
+                            "rank": 19,
+                            "team": {
+                                "id": 93,
+                                "name": "Reims",
+                                "logo": "https://media.api-sports.io/football/teams/93.png"
+                            },
+                            "points": 1,
+                            "goalsDiff": -3,
+                            "group": "Ligue 1",
+                            "form": "LLLD",
+                            "status": "same",
+                            "description": "Relegation - Ligue 2",
+                            "all": {
+                                "played": 4,
+                                "win": 0,
+                                "draw": 1,
+                                "lose": 3,
+                                "goals": {
+                                    "for": 3,
+                                    "against": 6
+                                }
+                            },
+                            "home": {
                                 "played": 1,
                                 "win": 0,
                                 "draw": 0,
                                 "lose": 1,
                                 "goals": {
                                     "for": 0,
+                                    "against": 1
+                                }
+                            },
+                            "away": {
+                                "played": 3,
+                                "win": 0,
+                                "draw": 1,
+                                "lose": 2,
+                                "goals": {
+                                    "for": 3,
+                                    "against": 5
+                                }
+                            },
+                            "update": "2020-09-26T00:00:00+00:00"
+                        },
+                        {
+                            "rank": 20,
+                            "team": {
+                                "id": 89,
+                                "name": "Dijon",
+                                "logo": "https://media.api-sports.io/football/teams/89.png"
+                            },
+                            "points": 0,
+                            "goalsDiff": -7,
+                            "group": "Ligue 1",
+                            "form": "LLLL",
+                            "status": "same",
+                            "description": "Relegation - Ligue 2",
+                            "all": {
+                                "played": 4,
+                                "win": 0,
+                                "draw": 0,
+                                "lose": 4,
+                                "goals": {
+                                    "for": 1,
                                     "against": 8
                                 }
                             },
                             "home": {
-                                "played": 0,
+                                "played": 2,
                                 "win": 0,
                                 "draw": 0,
-                                "lose": 0,
+                                "lose": 2,
                                 "goals": {
                                     "for": 0,
-                                    "against": 0
+                                    "against": 3
                                 }
                             },
                             "away": {
-                                "played": 1,
+                                "played": 2,
                                 "win": 0,
                                 "draw": 0,
-                                "lose": 1,
+                                "lose": 2,
                                 "goals": {
-                                    "for": 0,
-                                    "against": 8
+                                    "for": 1,
+                                    "against": 5
                                 }
                             },
-                            "update": "2020-09-20T00:00:00+00:00"
+                            "update": "2020-09-26T00:00:00+00:00"
                         }
                     ]
                 ]
             }
         }
     ]
-},
-        
+}
         }
-    },
+    }
 }
 </script>
 

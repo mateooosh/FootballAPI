@@ -53,15 +53,6 @@ export default {
     components:{
         Modal
     },
-    methods:{
-        showPlayer(index){
-            this.playerForModal = this.topScorers.response[index];
-            this.modalIsVisible = true;
-        },
-        setModalFalse(){
-            this.modalIsVisible = false;
-        }
-    },
     data(){
         return{
             topScorersIsVisible: false,
@@ -1985,6 +1976,16 @@ export default {
         
         }
     },
+    methods:{
+        showPlayer(index){
+            this.playerForModal = this.topScorers.response[index];
+            this.modalIsVisible = true;
+        },
+        setModalFalse(){
+            this.modalIsVisible = false;
+        }
+    },
+    
     mounted(){
       // fetch TOP SCORERS
       fetch(`https://v3.football.api-sports.io/players/topscorers?season=2020&league=${this.leagueId}`, {
