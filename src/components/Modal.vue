@@ -1,5 +1,6 @@
 <template>
     <section id="modal" class="fixed-top modal-dialog modal-dialog-centered">
+
         <div class="modal-content">
             <div class="modal-header align-items-center justify-content-around">
                 <img class="photo" :src="player.player.photo" :alt="player.player.name" width="120">
@@ -177,7 +178,7 @@ export default {
 
 @media(max-width: 576px){
     section{
-        position: static;
+        // position: static;
     }
 
     .photo{

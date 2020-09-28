@@ -6,6 +6,7 @@
   </a>
   
   <Standing :promotions="promotions" :leagueId="leagueId"/>
+  <Matches :leagueId="leagueId" :matchesInRound="10"/>
   <TopScorers :leagueId="leagueId" />
   <Footer/>
 </template>
@@ -14,13 +15,16 @@
 import Navbar from '@/components/Navbar.vue';
 import Standing from '@/components/Standing.vue';
 import TopScorers from '@/components/TopScorers.vue';
+import Matches from '@/components/Matches.vue';
 import Footer from '@/components/Footer.vue';
+
 export default {
     name: 'Ligue1',
     components:{
         Navbar,
         Standing,
         TopScorers,
+        Matches,
         Footer,
     },
     data(){
