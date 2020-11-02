@@ -1,8 +1,8 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-light navbar-sticky-top bg-success py-3 h5">
+    <nav class="navbar navbar-expand-md navbar-dark navbar-sticky-top py-3 h5 nav-bg-color">
         <div class="container">
 
-            <a class="navbar-brand text-white font-weight-bolder " href="#">FootScore</a>
+            <a class="navbar-brand nav-font-color font-weight-bolder f-25" href="#">Footscore</a>
 
             <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#main-menu">
                 <span class="navbar-toggler-icon"></span>
@@ -11,15 +11,15 @@
             <div class="collapse navbar-collapse justify-content-center" id="main-menu">
                 <ul class="navbar-nav ml-auto">
 
-                    <li class="nav-item text-white px-4">
-                        <router-link class="nav-link text-white" to="/">Home</router-link> 
+                    <li class="nav-item px-4">
+                        <router-link class="nav-link nav-font-color" to="/">Home</router-link> 
                     </li>
                     
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle nav-font-color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                         Leagues
                         </a>
-                        <div class="dropdown-menu text-left bg-light">
+                        <div class="dropdown-menu text-left dropdown-bg-color">
                             <router-link class="dropdown-item" to="/bundesliga">
                                 <img class="mr-2" src="https://www.countryflags.io/de/flat/32.png" width="26" alt="Germany">
                                 Bundesliga
@@ -82,13 +82,9 @@
                         </div>
                     </li>
 
-                    <li class="nav-item text-white px-4">
-                        <router-link class="nav-link text-white" to="/about">About</router-link> 
+                    <li class="nav-item px-4">
+                        <router-link class="nav-link nav-font-color" to="/about">About</router-link> 
                     </li>
-
-
-                    
-
                 </ul>
             </div>
         </div>
@@ -126,6 +122,30 @@ a{
         opacity:1;transform: 
         translateY(0px);
         transition:.5s ease all;
+    }
+}
+
+.nav-bg-color{
+    background-color: #3aafa9;
+}
+
+.nav-font-color{
+    color: #def2f1 !important;
+}
+
+.dropdown-bg-color{
+    background-color: #eaf3f3;
+}
+
+.f-25{
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+.dropdown-menu{
+    a:hover{
+        background-color: #3aafa9;
+        color: white;
     }
 }
 

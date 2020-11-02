@@ -1,7 +1,7 @@
 <template>
   <section class="container p-0 mt-5 " style="max-width: 700px;">
         <div v-if="modalIsVisible" class="position-fixed" style="width:100vw; height: 100vh;top:0; left:0; background-color: rgba(220,220,220,0.7)"></div>
-        <h1 class="mb-3">Top Scorers</h1>
+        <h1 class="mb-3 pt-4">Top Scorers</h1>
 
         <Modal v-if="modalIsVisible" :player="playerForModal" v-on:close-modal="setModalFalse"/>
 

@@ -1,7 +1,7 @@
 <template>
   <section class="container p-0" style="max-width: 700px;">
         
-        <h1 class="mt-4 mb-3">Standings</h1>
+        <h1 class="pt-4 mb-3">Standings</h1>
 
         <!-- loading animation -->
         <div v-if="!totalStandingIsVisible" class="lds-dual-ring"></div>

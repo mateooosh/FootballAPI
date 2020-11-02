@@ -77,48 +77,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div>
-                    <h6 class="font-weight-bold text-left mt-4 mb-1 ">PASSES</h6>
-                    <div class="d-flex justify-content-between border-bottom mb-1">
-                        <div>
-                            Assists
-                        </div>
-                        <div>
-                            <span v-if="player.statistics[0].goals.assists == null">0</span>
-                            <span v-if="player.statistics[0].goals.assists != null">{{player.statistics[0].goals.assists}}</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between border-bottom mb-1">
-                        <div>
-                            Accuracy
-                        </div>
-                        <div>
-                            {{player.statistics[0].passes.accuracy}}%
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between border-bottom mb-1">
-                        <div>
-                            Key passes
-                        </div>
-                        <div>
-                            {{player.statistics[0].passes.key}}
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between mb-1">
-                        <div>
-                            Passes per game
-                        </div>
-                        <div>
-                            {{Math.round((player.statistics[0].passes.total*10) / (player.statistics[0].games.appearences))/10}}
-                        </div>
-                    </div>
-                </div>
-
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer mt-3">
                 <button type="button" class="btn btn-secondary m-auto" @click="$emit('close-modal')">Close</button>
             </div>
         </div>

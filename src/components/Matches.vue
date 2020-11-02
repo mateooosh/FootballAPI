@@ -1,6 +1,6 @@
  <template>
-  <section class="container p-0 mt-5 " style="max-width: 700px;">
-        <h1 class="mb-3">Matches</h1>
+  <section class="container p-0 mt-5" style="max-width: 700px;">
+        <h1 class="mb-3 pt-4">Matches</h1>
 
 
         <!-- loading animation -->
@@ -8,7 +8,20 @@
 
         <!-- top scorers -->
         <div v-if="matchesAreVisible" class="container">
+
             
+            <div class="pb-3">
+                <button class="btn btn-color m-2 width-100" @click="decrementRound">
+                    Previous
+                </button>
+
+                Round {{round}}
+
+                <button class="btn btn-color m-2 width-100" @click="incrementRound">
+                    Next
+                </button>
+            </div>
+
             <div v-for="(match, index) in roundArray" :key="index" class="border-top d-flex">
                 <div class="border-right px-2 d-flex flex-column justify-content-center" style="font-size: 16px;">
                     <div>
@@ -43,14 +56,6 @@
                 
                 
             </div>
-            Round {{round}}
-                <button class="btn btn-success m-2" @click="round++; getRoundArray()">
-                    +1
-                </button>
-                
-                <button class="btn btn-success m-2" @click="round--; getRoundArray()">
-                    -1
-                </button>
         </div>
         
 
@@ -74,6 +79,20 @@ export default {
         }
     },
     methods:{
+        incrementRound(){
+            if(this.round<this.matchesInRound*4-2){
+                this.round++;
+                this.getRoundArray();
+            }
+        },
+
+        decrementRound(){
+            if(this.round>1){
+                this.round--;
+                this.getRoundArray();
+            }
+        },
+
         getRoundArray(){
             let tab = [];
             for(let i=this.matchesInRound*this.round-this.matchesInRound; i<this.matchesInRound * this.round; i++){
@@ -101,7 +120,7 @@ export default {
         
 
         console.log(this.matches);
-      // fetch TOP SCORERS
+    //   // fetch TOP SCORERS
       fetch(`https://v3.football.api-sports.io/fixtures?season=2020&league=${this.leagueId}`, {
         "method": "GET",
         "headers": {
@@ -133,8 +152,6 @@ export default {
         this.getRoundArray();
         
         this.matchesAreVisible = true;
-
-        
       })
       .catch(err => {
         console.log(err);
@@ -180,4 +197,18 @@ export default {
     transform: rotate(360deg);
   }
 }
+
+.width-100{
+    width: 80px;
+}
+
+.btn-color{
+    background-color: #3aafa9;
+    color: #def2f1;
+
+    &:hover{
+        background-color: #08857e;
+    }
+}
+
 </style>
