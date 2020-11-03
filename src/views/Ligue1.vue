@@ -9,6 +9,7 @@
   <Matches :leagueId="leagueId" :matchesInRound="10"/>
   <TopScorers :leagueId="leagueId" />
   <Footer/>
+  <Background/>
 </template>
 
 <script>
@@ -17,6 +18,7 @@ import Standing from '@/components/Standing.vue';
 import TopScorers from '@/components/TopScorers.vue';
 import Matches from '@/components/Matches.vue';
 import Footer from '@/components/Footer.vue';
+import Background from '@/components/Background.vue';
 
 export default {
     name: 'Ligue1',
@@ -26,6 +28,7 @@ export default {
         TopScorers,
         Matches,
         Footer,
+        Background
     },
     data(){
       return{

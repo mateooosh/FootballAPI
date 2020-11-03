@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark navbar-sticky-top py-3 h5 nav-bg-color">
+    <nav class="navbar navbar-expand-md navbar-dark py-4 h5 nav-bg-color">
         <div class="container">
 
             <a class="navbar-brand nav-font-color font-weight-bolder f-25" href="#">Footscore</a>
@@ -101,7 +101,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+nav{
+    margin:0;
+}
 a{
     padding: 0 1.5 rem;
     img{
@@ -126,7 +128,8 @@ a{
 }
 
 .nav-bg-color{
-    background-color: #3aafa9;
+    // background-color: #3aafa9;
+    background:none;
 }
 
 .nav-font-color{
@@ -144,7 +147,7 @@ a{
 
 .dropdown-menu{
     a:hover{
-        background-color: #3aafa9;
+        background-color: rgb(22, 128, 45);
         color: white;
     }
 }

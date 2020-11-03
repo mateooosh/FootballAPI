@@ -1,5 +1,5 @@
 <template>
-  <section class="container p-0 mt-5 " style="max-width: 700px;">
+  <section class="container p-0 mt-5 mb-5 top-scorers" style="max-width: 700px;">
         <div v-if="modalIsVisible" class="position-fixed" style="width:100vw; height: 100vh;top:0; left:0; background-color: rgba(220,220,220,0.7)"></div>
         <h1 class="mb-3 pt-4">Top Scorers</h1>
 
@@ -91,13 +91,18 @@ export default {
       })
       .catch(err => {
         console.log(err);
+        alert("The amount of requests is exceeded. Come back tomorrow!");
       });
     },
 }
 </script>
 
 <style lang="scss" scoped>
-
+.top-scorers{
+    background-color: rgba(255, 255, 255, 0.89);
+    padding-bottom: 10px;
+    border-radius: 8px;
+}
 @media(max-width: 576px){
     .table td, .table th {
         font-size:12px;

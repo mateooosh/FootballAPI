@@ -1,5 +1,5 @@
  <template>
-  <section class="container p-0 mt-5" style="max-width: 700px;">
+  <section class="container p-0 mt-5 pb-4 matches" style="max-width: 700px;">
         <h1 class="mb-3 pt-4">Matches</h1>
 
 
@@ -155,13 +155,18 @@ export default {
       })
       .catch(err => {
         console.log(err);
+        alert("The amount of requests is exceeded. Come back tomorrow!");
       });
     },
 }
 </script>
 
 <style lang="scss" scoped>
-
+.matches{
+    background-color: rgba(255, 255, 255, 0.89);
+    padding-bottom: 10px;
+    border-radius: 8px;
+}
 @media(max-width: 576px){
     .container{
         padding:0;

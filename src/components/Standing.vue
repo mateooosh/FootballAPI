@@ -1,5 +1,5 @@
 <template>
-  <section class="container p-0" style="max-width: 700px;">
+  <section class="container p-0 pb-4 standing" style="max-width: 700px;">
         
         <h1 class="pt-4 mb-3">Standings</h1>
 
@@ -130,6 +130,7 @@ export default {
       })
       .catch(err => {
         console.log(err);
+        alert("The amount of requests is exceeded. Come back tomorrow!");
       });
  
       
@@ -144,6 +145,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.standing{
+    background-color: rgba(255, 255, 255, 0.89);
+    padding-bottom: 10px;
+    border-radius: 8px;
+}
 
 //variables
 $champions: #004682;

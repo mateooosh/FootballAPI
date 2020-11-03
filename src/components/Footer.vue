@@ -1,39 +1,107 @@
 <template>
-    <footer class="footer p-4 mt-5">
-        <div class="container">
-            <div>
-                <div class="mb-1 font-weight-bolder">
-                    Top 5 Leagues
-                </div>
-                <router-link class="px-3 d-block" to="/bundesliga">Bundesliga</router-link>
-                <router-link class="px-3 d-block" to="/ligue-1">Ligue 1</router-link>
-                <router-link class="px-3 d-block" to="/premier-league">Premier League</router-link>
-                <router-link class="px-3 d-block" to="/primera-division">Primera Division</router-link>
-                <router-link class="px-3 d-block" to="/serie-a">Serie A</router-link>
+<footer class="page-footer font-small">
 
-            </div>
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left pt-3">
 
-            <div>
-                <div class="mb-1 mt-3 font-weight-bolder">
-                    Other Leagues
-                </div>
-                <router-link class="px-3 d-block" to="/championship">Championship</router-link> 
-                <router-link class="px-3 d-block" to="/ekstraklasa">Ekstraklasa</router-link>
-                <router-link class="px-3 d-block" to="/division-1">Division 1</router-link>
-                <router-link class="px-3 d-block" to="/eredivisie">Eredivisie</router-link>
-                <router-link class="px-3 d-block" to="/portugal">Primeira Liga</router-link>
-                <router-link class="px-3 d-block" to="/russian-premier-league">Russian Premier League</router-link>
+    <!-- Grid row -->
+    <div class="row">
 
-            </div>
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto text-center">
 
-            <div class="mt-5">
-                <span class="text-muted">All Rights Reserved © 2020 Copyright: 
-                    <a class="font-weight-bold" href="#">MB Software, Inc.</a> 
-                </span>
-            </div>
-            
-        </div>
-    </footer>
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Top 5 Leagues</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <router-link to="/bundesliga">Bundesliga</router-link>
+          </li>
+          <li>
+            <router-link to="/ligue-1">Ligue 1</router-link>
+          </li>
+          <li>
+            <router-link to="/premier-league">Premier League</router-link>
+          </li>
+          <li>
+            <router-link to="/primera-division">Primera Division</router-link>
+          </li>
+          <li>
+            <router-link to="/serie-a">Serie A</router-link>
+          </li>
+        </ul>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto text-center">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Other Leagues</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <router-link to="/championship">Championship</router-link>
+          </li>
+          <li>
+            <router-link to="/ekstraklasa">Ekstraklasa</router-link>
+          </li>
+          <li>
+            <router-link to="/division-1">Division 1</router-link>
+          </li>
+          <li>
+            <router-link to="/eredivisie">Eredivisie</router-link>
+          </li>
+          <li>
+            <router-link to="/portugal">Primeira Liga</router-link>
+          </li>
+          <li>
+            <router-link to="/russian-premier-league">Russian Premier League</router-link>
+          </li>
+        </ul>
+
+      </div> 
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-4 mx-auto text-center">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact</h5>
+
+        <ul class="list-unstyled">
+          <li class="my-2">
+            <p>
+              <i class="fas fa-home"></i> Cracow, PL
+            </p>
+          </li>
+          <li class="my-2">
+            <p>
+              <i class="fas fa-envelope"></i> mateusz20111@op.pl
+            </p>
+          </li>
+          <li class="my-2">
+            <p>
+              <i class="fas fa-phone"></i> 533 790 025
+            </p>
+          </li>
+          
+        </ul>
+
+      </div> 
+    </div>
+
+  </div>
+  <div class="footer-copyright text-center py-3 mt-3">
+    <span class="text-muted">All Rights Reserved © 2020 Copyright: 
+      <a class="font-weight-bold" href="#">MB Software, Inc.</a> 
+    </span>
+  </div>
+
+</footer>
 </template>
 
 <script>
@@ -43,6 +111,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+p{
+  margin:0;
+  color: #6c757d;
+}
 a{
     text-decoration: none;
     color: #6c757d;
@@ -55,5 +127,11 @@ a{
 footer{
     border-top: 1px solid rgb(230, 230, 230);
     letter-spacing: 1px;
+    background-color:rgb(241, 241, 241);
+}
+
+.footer-copyright{
+  border-top: 1px solid #e6e6e6;
+  background-color:rgb(231, 231, 231) ;
 }
 </style>
