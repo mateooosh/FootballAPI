@@ -1,8 +1,8 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-dark py-4 h5 nav-bg-color">
+    <nav class="navbar navbar-expand-md navbar-dark py-4 h5 text-white">
         <div class="container">
 
-            <a class="navbar-brand nav-font-color font-weight-bolder f-25" href="#">Footscore</a>
+            <a class="navbar-brand text-white font-weight-bolder f-25" href="#">Footscore</a>
 
             <button class="navbar-toggler btn" type="button" data-toggle="collapse" data-target="#main-menu">
                 <span class="navbar-toggler-icon"></span>
@@ -12,11 +12,11 @@
                 <ul class="navbar-nav ml-auto">
 
                     <li class="nav-item px-4">
-                        <router-link class="nav-link nav-font-color" to="/">Home</router-link> 
+                        <router-link class="nav-link text-white" to="/">Home</router-link> 
                     </li>
                     
                     <li class="nav-item dropdown px-4">
-                        <a class="nav-link dropdown-toggle nav-font-color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                         Leagues
                         </a>
                         <div class="dropdown-menu text-left dropdown-bg-color">
@@ -83,7 +83,7 @@
                     </li>
 
                     <li class="nav-item px-4">
-                        <router-link class="nav-link nav-font-color" to="/about">About</router-link> 
+                        <router-link class="nav-link nav-font-color text-white" to="/about">About</router-link> 
                     </li>
                 </ul>
             </div>
@@ -110,6 +110,7 @@ a{
         padding-bottom: 4px;
     }
 }
+
 @media(min-width:768px){
     .dropdown-menu {
         display: block;
@@ -132,12 +133,8 @@ a{
     background:none;
 }
 
-.nav-font-color{
-    color: #def2f1 !important;
-}
-
 .dropdown-bg-color{
-    background-color: #eaf3f3;
+    background-color: #ebebeb;
 }
 
 .f-25{
