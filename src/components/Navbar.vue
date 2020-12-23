@@ -144,8 +144,7 @@ a{
 
 .dropdown-menu{
     a:hover{
-        background-color: rgb(22, 128, 45);
-        color: white;
+        background-color: #cfcfcf;
     }
 }
 

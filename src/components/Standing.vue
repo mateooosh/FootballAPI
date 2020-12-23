@@ -7,7 +7,7 @@
         <div v-if="!totalStandingIsVisible" class="lds-dual-ring"></div>
 
         <!-- Total standing--> 
-        <div v-if="totalStandingIsVisible" class="table-responsive padding-1">
+        <div v-if="totalStandingIsVisible" class="table-responsive px-2">
         <!-- <div class="table-responsive px-1"> -->
             <table class="table table-hover">
                 <thead>
@@ -158,10 +158,6 @@ $europa: #7f0029;
 $europa-quali: #c71585;
 $relegation: #bd0000;
 
-.padding-1{
-    padding-left: 1px;
-    padding-right: 1px;
-}
 
 .win, .draw, .lose{
     margin-right: 2px;
